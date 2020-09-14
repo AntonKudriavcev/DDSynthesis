@@ -16,10 +16,18 @@ DAC_bit_resolution = 12;
 
 %-user param---------------
 
-f_deviation  = 3e6;   % Hz
-t_impulse    = 260e-6; % sec
+f_deviation  = 3e6;    % Hz
+t_impulse    = 60e-6; % sec
 t_repetition = 400e-6;
-num_of_impulse = 1;
+num_of_impulse = 5;
+
+vobulation_array = zeros(1,num_of_impulse - 1);
+
+for i = 1:1:(num_of_impulse - 1)
+    vobulation_array(i) = t_repetition + (t_repetition * rand());
+end
+
+vobulation_array
 
 %-auxiliary variables----------------------------------------------------------
 
@@ -40,13 +48,15 @@ sin_points = sin_points(sin_phase_points);
 
 %-zero points generator--------------------------------------------------------
 
-num_of_zero_points = round((t_repetition - t_impulse)/t_disc);
+num_of_zero_points = zeros(1, num_of_impulse - 1);
 
-zero_points = int32((zeros(1, num_of_zero_points) + 1)/2 * (2^DAC_bit_resolution - 1));
+for i = 1:1:(num_of_impulse - 1)
+     num_of_zero_points(i) = round((vobulation_array(i) - t_impulse)/t_disc);
+end
 
 %-output signal generator------------------------------------------------------
 
-output_signal = collect_a_packet(num_of_impulse, sin_points, zero_points);
+output_signal = collect_a_packet(num_of_impulse, sin_points, num_of_zero_points, DAC_bit_resolution);
 
 %------------------------------------------------------------------------------
 
@@ -62,25 +72,25 @@ xlabel('Time, sec');
 ylabel('ADC discharge number');
 grid on;
 
-% plotting spectrum
-figure(2);
-spectrum = abs(fft(output_signal));
-spectrum = spectrum/max(spectrum);
-frequ_points = 0:f_sampling/(length(spectrum) - 1):f_sampling;
-
-plot(frequ_points, spectrum);
-title('Spectrum');
-xlim([f_carrier - 2*f_deviation, f_carrier + 2*f_deviation]);
-ylim([0, max(spectrum)/15]);
-xlabel('Frequency, Hz');
-grid on;
-
-% plotting spectrum borders
-hold on;
-plot([f_min f_min],[0 1]);
-
-hold on;
-plot([f_max f_max],[0 1]);
+% % plotting spectrum
+% figure(2);
+% spectrum = abs(fft(output_signal));
+% spectrum = spectrum/max(spectrum);
+% frequ_points = 0:f_sampling/(length(spectrum) - 1):f_sampling;
+% 
+% plot(frequ_points, spectrum);
+% title('Spectrum');
+% xlim([f_carrier - 2*f_deviation, f_carrier + 2*f_deviation]);
+% ylim([0, max(spectrum)/15]);
+% xlabel('Frequency, Hz');
+% grid on;
+% 
+% % plotting spectrum borders
+% hold on;
+% plot([f_min f_min],[0 1]);
+% 
+% hold on;
+% plot([f_max f_max],[0 1]);
 %------------------------------------------------------------------------------
 
 

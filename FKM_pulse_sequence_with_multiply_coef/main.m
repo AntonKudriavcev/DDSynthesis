@@ -17,15 +17,14 @@ DAC_output_voltage = 3.3;
 
 %-user param---------------
 
-f_deviation  = 3e6*1;    % Hz
 t_impulse    = 60e-6; % sec
 t_repetition = 400e-6;
-num_of_impulse = 5;
+num_of_impulse = 2;
 
 vobulation_array = zeros(1,num_of_impulse - 1);
 
 for i = 1:1:(num_of_impulse - 1)
-    vobulation_array(i) = t_repetition + (t_repetition * rand());
+    vobulation_array(i) = t_repetition + (t_repetition * rand())*0;
 end
 
 vobulation_array
@@ -36,16 +35,15 @@ t_disc = 1/f_sampling;
 
 num_of_sin_points  = (round(t_impulse/t_disc));
 
-f_max = f_carrier + (f_deviation/2);
-f_min = f_carrier - (f_deviation/2);
-
 %-sin points generator---------------------------------------------------------
 
-sin_points = floor((sin(0:(2*pi/(array_dimention - 1):2*pi) + 1)/2 * (2^DAC_bit_resolution - 1));
+sin_points = floor((sin(0:(2*pi/(array_dimention - 1)):2*pi) + 1)/2 * (2^DAC_bit_resolution - 1));
 
-sin_phase_points = phase_accum(num_of_sin_points, array_dimention, mult_coef, f_sampling, t_disc, f_max, f_min, t_impulse);
+sin_phase_points = phase_accum(num_of_sin_points, array_dimention, mult_coef, f_carrier, f_sampling);
 
 sin_points = sin_points(sin_phase_points);
+
+sin_points = gen_of_FKM(num_of_sin_points, sin_points, DAC_bit_resolution);
 
 %-zero points generator--------------------------------------------------------
 
@@ -91,20 +89,19 @@ spectrum = abs(fft(output_signal));
 spectrum = spectrum/max(spectrum);
 frequ_points = (0:1:length(spectrum) - 1) * f_sampling/length(spectrum);
 
-plot(frequ_points, spectrum);
-xlim([f_carrier - 2*f_deviation - 100, f_carrier + 2*f_deviation + 100]);
-% xlim([0, f_sampling/2])
-ylim([0, max(spectrum)*1.5]);
+plot(frequ_points, spectrum); 
+xlim([0, f_sampling/2])
+ylim([0, max(spectrum)*1.2]);
 title('Spectrum');
 xlabel('Frequency, Hz');
 grid on;
 
 % plotting spectrum borders
-hold on;
-plot([f_min f_min],[0 1]);
-
-hold on;
-plot([f_max f_max],[0 1]);
+% hold on;
+% plot([f_min f_min],[0 1]);
+% 
+% hold on;
+% plot([f_max f_max],[0 1]);
 
 % plotting ACF
 figure(4);

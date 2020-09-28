@@ -1,3 +1,8 @@
+##-----------------------------------------------------------------------------
+## Editor: Kudriavcev Anton
+## e-mail: Kudiavcev.Anton@yandex.ru
+##-----------------------------------------------------------------------------
+
 import numpy as np
 from scipy import signal
 from matplotlib import pyplot as plt
@@ -31,16 +36,21 @@ def create_probability_distribution(probability_density):
 
 def create_uniform_values(minn, maxx, num_of_variables):
 
-    m   = 18
-    l   = 13
-    z   = [189601]
-    u   = 1023  
+    m  = int(np.log2(maxx))
+    l  = 31
+    z  = []
+    u  = 1
 
-    for i in range(num_of_variables - 1):
-        z_next = ((l * z[i]) & (2**m - 1))
-        z.append(z_next + 1)
+    bit_deph = 32
+    z_curr = int(2**(m - 2))
 
+    for i in range(num_of_variables):
+        z_next = ((l * z_curr + u) & (2**bit_deph - 1))
 
+        # z.append((z_next >> m) & (2**m - 1) + 1)
+
+        z.append(((z_next >> (bit_deph - m)) & (2**m - 1) ) + minn)
+        z_curr = z_next
 
     # X = np.random.randint(minn, maxx, num_of_variables)
 
@@ -107,7 +117,7 @@ disc_rnd_values = np.linspace(0, N - 1, N) ## все возможные диск
 m = N/2 - 1 ## матожидание 
 sigma = m/3 ## зададим матожидание как величину в 3 сигмы
 
-mult_coef = 264933.3 ## коэффициент для перевода плотности внероятности в область целых чисел
+mult_coef = 264933 ## коэффициент для перевода плотности внероятности в область целых чисел
 
 ##-----------------------------------------------------------------------------
 
@@ -116,21 +126,22 @@ probability_density = 1/(np.sqrt(2*np.pi) * sigma) * np.exp(-((disc_rnd_values -
 # plotter(probability_density, 'Гауссовская плотность распр. вер-ти', 1, 0)
 
 probability_density = np.longlong(mult_coef * probability_density)
+probability_density[130] += 1 ## костыль чтобы суммарная вероятность была равна 2**k иначе получается ( 2**k - 1 ) или ( 2**k + 1 ) 
 
-# plotter(probability_density, 'Гауссовская плотность распр. вер-ти\nпереведенная в область целых чисел', 2, 0)
+plotter(probability_density, 'Гауссовская плотность распр. вер-ти\nпереведенная в область целых чисел', 2, 0)
 
 print('Площадь под функцией полотности вероятности = ', sum(probability_density))
 
 uniform_rnd_values = create_uniform_values(1, sum(probability_density), 10000)
-print(min(uniform_rnd_values))
-print(max(uniform_rnd_values))
+# print(min(uniform_rnd_values))
+# print(max(uniform_rnd_values))
 # plotter(uniform_rnd_values, 'Сл. величины, распр. равномерно', 3, 0)
 
 gauss_values = np.array(uniform_to_gauss_convertor(uniform_rnd_values, probability_density), dtype = 'longlong' )
-plotter(gauss_values, 'Сл. величины, распр. нормально', 4, 0)
+# plotter(gauss_values, 'Сл. величины, распр. нормально', 4, 0)
 
-experimental_prob_density = creare_probability_density(disc_rnd_values, gauss_values)
-plotter(experimental_prob_density, 'Экспериментальная плотность распределения', 5, 0)
+# # experimental_prob_density = creare_probability_density(disc_rnd_values, gauss_values)
+# # plotter(experimental_prob_density, 'Экспериментальная плотность распределения', 5, 0)
 
 
 output_signal = dig_to_analog_convertor(DAC_output_voltage, DAC_bit_resolution, gauss_values)
@@ -138,3 +149,6 @@ plotter(output_signal, 'Выходное напряжение', 6, 0)
 
 acf = create_ACF(output_signal)
 plotter(acf, 'Автокорреляционная функция', 7, 1)
+
+# # spectrum = abs(np.fft.fft(output_signal))
+# # plotter(spectrum, 'Спектр сигнала', 8, 1)

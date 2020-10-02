@@ -41,7 +41,7 @@ f_min = f_carrier - (f_deviation/2);
 
 %-sin points generator---------------------------------------------------------
 
-sin_points = floor((sin(0:(2*pi/(array_dimention - 1):2*pi) + 1)/2 * (2^DAC_bit_resolution - 1));
+sin_points = floor((sin(0:(2*pi/(array_dimention - 1)):2*pi) + 1)/2 * (2^DAC_bit_resolution - 1));
 
 sin_phase_points = phase_accum(num_of_sin_points, array_dimention, mult_coef, f_sampling, t_disc, f_max, f_min, t_impulse);
 

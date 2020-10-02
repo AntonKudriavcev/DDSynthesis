@@ -111,7 +111,6 @@ def expand_values(avg_gauss_values, step):
 
     m = int(np.log2(step))
     l = 31
-    z = []
     u = 1
 
     bit_deph = 31
@@ -144,7 +143,7 @@ def dig_to_analog_convertor(DAC_output_voltage, DAC_bit_resolution, digital_valu
 def create_ACF(data):
 
     acf = np.correlate(data, data, 'full')
-    acf/= max(acf) 
+    # acf/= max(acf) 
 
     return acf
 
@@ -203,7 +202,7 @@ non_avg_gauss_values = expand_values(avg_gauss_values, step) ## ре-усред�
 output_signal = dig_to_analog_convertor(DAC_output_voltage, DAC_bit_resolution, non_avg_gauss_values) ## перевод дискр значений к "аналоговым"
 plotter(output_signal, 'Выходное напряжение', 10, 0)
 
-acf = create_ACF(output_signal) ## нахождение АКФ
+acf = create_ACF(non_avg_gauss_values) ## нахождение АКФ
 plotter(acf, 'Автокорреляционная функция', 11, 1)
 
 # spectrum = abs(np.fft.fft(output_signal))

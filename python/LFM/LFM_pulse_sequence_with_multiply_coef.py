@@ -55,7 +55,7 @@ f_carrier   = 1.3e9        # Hz
 f_sampling  = 13e9   	   # Hz
 t_disc      = 1/f_sampling # sec
 
-bit_depth = 16
+bit_depth = 12
 mult_coef = 1024
 array_dimention  = 2**bit_depth
 
@@ -78,39 +78,39 @@ f_min = f_carrier - (f_deviation/2)
 
 sin_points = np.longlong((np.sin(np.linspace(0, 2 * np.pi, array_dimention)) + 1)/2 * (2**DAC_bit_resolution - 1))# creating an array of sin signal values
 
-sin_phase_points = phase_accum(num_of_sin_points, array_dimention, mult_coef, f_sampling, t_disc, f_max, f_min, t_impulse)
-plt.plot(sin_phase_points)
-plt.show()
-sin_points = sin_points[sin_phase_points]
+# sin_phase_points = phase_accum(num_of_sin_points, array_dimention, mult_coef, f_sampling, t_disc, f_max, f_min, t_impulse)
+# plt.plot(sin_phase_points)
+# plt.show()
+# sin_points = sin_points[sin_phase_points]
 
-##-----------------------------------------------------------------------------
+# ##-----------------------------------------------------------------------------
 
-num_of_zero_points = int((t_repetition - t_impulse)/t_disc)
+# num_of_zero_points = int((t_repetition - t_impulse)/t_disc)
 
-zero_points        = np.longlong((np.zeros(num_of_zero_points, dtype= np.int32) + 1)/2 * (2**DAC_bit_resolution - 1))
+# zero_points        = np.longlong((np.zeros(num_of_zero_points, dtype= np.int32) + 1)/2 * (2**DAC_bit_resolution - 1))
 
-##-----------------------------------------------------------------------------
+# ##-----------------------------------------------------------------------------
 
-output_signal = collect_a_packet(num_of_impulse, sin_points, zero_points)
+# output_signal = collect_a_packet(num_of_impulse, sin_points, zero_points)
 
-##-----------------------------------------------------------------------------
+# ##-----------------------------------------------------------------------------
 
-fig, (ax1, ax2) = plt.subplots(nrows = 2, ncols = 1)
-
-
-time_of_simulation = (num_of_impulse * t_impulse) + ((num_of_impulse - 1) * (t_repetition - t_impulse))
-print(time_of_simulation)
-time_points = np.linspace(0, 1, len(output_signal)) * time_of_simulation
-ax1.plot(time_points, output_signal)
-ax1.grid()
+# fig, (ax1, ax2) = plt.subplots(nrows = 2, ncols = 1)
 
 
-spectrum = abs(np.fft.fft(output_signal,  axis = -1))
-spectrum/= spectrum.max()
-frequ_points = np.linspace(0, 1, len(spectrum)) * f_sampling
-ax2.plot(frequ_points, spectrum)
-ax2.set_xlim(f_carrier - f_deviation, f_carrier + f_deviation)
-ax2.grid()
-plt.show()
+# time_of_simulation = (num_of_impulse * t_impulse) + ((num_of_impulse - 1) * (t_repetition - t_impulse))
+# print(time_of_simulation)
+# time_points = np.linspace(0, 1, len(output_signal)) * time_of_simulation
+# ax1.plot(time_points, output_signal)
+# ax1.grid()
+
+
+# spectrum = abs(np.fft.fft(output_signal,  axis = -1))
+# spectrum/= spectrum.max()
+# frequ_points = np.linspace(0, 1, len(spectrum)) * f_sampling
+# ax2.plot(frequ_points, spectrum)
+# ax2.set_xlim(f_carrier - f_deviation, f_carrier + f_deviation)
+# ax2.grid()
+# plt.show()
 
 

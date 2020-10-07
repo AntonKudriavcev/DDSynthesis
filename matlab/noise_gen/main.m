@@ -19,7 +19,7 @@ mult_coef = 264980; %% коэффициент для перевода плотности вероятности в область 
 
 avg_disc_rnd_values = 0:1:round(N/step - 1);
 
-num_of_simulation_points = 4000000;
+num_of_simulation_points = 100000;
 
 %------------------------------------------------------------------------------
 
@@ -58,20 +58,12 @@ plotter(tau, 10*log10(ACF), 'Автокорреляционная функция', 8);
 
 uniform_rnd_values = uniform_rnd_values/max(uniform_rnd_values) - 0.5;
 
-[ACF, tau] = xcorr(uniform_rnd_values,uniform_rnd_values);
-ACF = abs(ACF)/(max(ACF));
-plotter(tau, 10*log10(ACF), 'Автокорреляционная функция равном', 9);
+% [ACF, tau] = xcorr(uniform_rnd_values,uniform_rnd_values);
+% ACF = abs(ACF)/(max(ACF));
+% plotter(tau, 10*log10(ACF), 'Автокорреляционная функция равном', 9);
 
 figure (10);
 histogram(non_avg_gauss_values);
 
-% data = IDLE_data_save(:, 6);
-% figure(1);
-% plot(data);
-% figure(2);
-% plot(xcorr(data));
-% figure(3);
-% data = data(1:820:end);
-% plot(data);
-% figure(4);
-% plot(xcorr(data));
+spectrum = abs(fft(output_signal));
+plotter(1:1:length(spectrum)/2, spectrum(1:1:end/2), 'Спектр', 10);

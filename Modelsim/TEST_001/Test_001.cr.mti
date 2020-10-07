@@ -1,0 +1,22 @@
+D:/KudA/Files/Diploma/code/DDSynthesis/Quartus/Test_001/ROM.v {1 {vlog -work work D:/KudA/Files/Diploma/code/DDSynthesis/Quartus/Test_001/ROM.v
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module ROM
+
+Top level modules:
+	ROM
+
+} {} {}} D:/KudA/Files/Diploma/code/DDSynthesis/Modelsim/TEST_001/src/counter.v {1 {vlog -work work D:/KudA/Files/Diploma/code/DDSynthesis/Modelsim/TEST_001/src/counter.v
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module counter
+
+Top level modules:
+	counter
+
+} {} {}} D:/KudA/Files/Diploma/code/DDSynthesis/Modelsim/TEST_001/src/testbanch_tb.v {1 {vlog -work work -sv D:/KudA/Files/Diploma/code/DDSynthesis/Modelsim/TEST_001/src/testbanch_tb.v
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module testbanch_tb
+
+Top level modules:
+	testbanch_tb
+
+} {} {}}

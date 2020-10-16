@@ -1,0 +1,30 @@
+
+//vsim -gui -L 220model_ver -L 220model -L altera_ver -L altera -L altera_mf_ver -L altera_mf -L altera_lnsim_ver -L altera_lnsim work.testbanch_tb
+
+`timescale 1ns/1ps
+
+module testbanch_tb;
+    
+  reg           clk;
+  reg           reset;
+  wire   [3:0]  out_counter;
+  wire   [7:0] address;
+  wire   [11:0] out_ROM;
+    
+  counter    counter_1   (.CLK(clk),   .RESET(reset),     .OUT(out_counter));
+  ROM        ROM_1       (.clock(clk), .address(address), .q(out_ROM));
+  ROM_writer ROM_writer_1(.CLK(clk),   .RESET(reset),     .ROM_ADDRESS(address));
+    
+  initial begin
+    clk     = 0;
+    reset   = 0;
+  end
+
+  always begin 
+
+  	#1 clk = ~clk;
+
+  end
+  
+endmodule
+ 

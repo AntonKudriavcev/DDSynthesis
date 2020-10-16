@@ -84,9 +84,9 @@ module ROM (
 		altsyncram_component.clock_enable_input_a = "BYPASS",
 		altsyncram_component.clock_enable_output_a = "BYPASS",
 `ifdef NO_PLI
-		altsyncram_component.init_file = "D:/KudA/Files/Diploma/code/DDSynthesis/Modelsim/sin_points_look_UP_table_creator/sin.rif"
+		altsyncram_component.init_file = "D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/sin_points_look_UP_table_creator/sin.rif"
 `else
-		altsyncram_component.init_file = "D:/KudA/Files/Diploma/code/DDSynthesis/Modelsim/sin_points_look_UP_table_creator/sin.hex"
+		altsyncram_component.init_file = "D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/sin_points_look_UP_table_creator/sin.hex"
 `endif
 ,
 		altsyncram_component.intended_device_family = "Cyclone IV GX",

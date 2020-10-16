@@ -1,0 +1,29 @@
+D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/counter.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/counter.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module counter
+
+Top level modules:
+	counter
+
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/regg.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/regg.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module regg
+
+Top level modules:
+	regg
+
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/buff.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/buff.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module buff
+
+Top level modules:
+	buff
+
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/tb/test_tb.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/tb/test_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module test_tb
+
+Top level modules:
+	test_tb
+
+} {} {}}

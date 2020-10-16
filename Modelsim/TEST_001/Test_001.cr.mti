@@ -5,6 +5,13 @@ Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
 Top level modules:
 	ROM
 
+} {} {}} D:/KudA/Files/Diploma/code/DDSynthesis/Modelsim/TEST_001/ROM_writer.v {1 {vlog -work work D:/KudA/Files/Diploma/code/DDSynthesis/Modelsim/TEST_001/ROM_writer.v
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module ROM_writer
+
+Top level modules:
+	ROM_writer
+
 } {} {}} D:/KudA/Files/Diploma/code/DDSynthesis/Modelsim/TEST_001/src/counter.v {1 {vlog -work work D:/KudA/Files/Diploma/code/DDSynthesis/Modelsim/TEST_001/src/counter.v
 Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
 -- Compiling module counter

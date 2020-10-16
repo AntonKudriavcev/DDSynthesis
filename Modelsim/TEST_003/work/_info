@@ -1,0 +1,115 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/LFM
+vbuff
+!s110 1602493444
+!i10b 1
+!s100 IP6W0`P]IDjV;hzNH=zVl0
+I[U?M0K@AJf0C<O^5l8C5T1
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+Z1 dD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003
+w1602369173
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/buff.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/buff.v
+L0 1
+Z2 OV;L;10.6d;65
+r1
+!s85 0
+31
+!s108 1602493444.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/buff.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/buff.v|
+!i113 1
+Z3 o-work work
+Z4 tCvgOpt 0
+vcounter
+!s110 1602365057
+!i10b 1
+!s100 U^d@>ff8B^BYe@ZZPNele1
+I>02QBmdLLJ_bP?XYU108J3
+R0
+R1
+w1602365050
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/counter.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/counter.v
+L0 1
+R2
+r1
+!s85 0
+31
+!s108 1602365057.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/counter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/counter.v|
+!i113 1
+R3
+R4
+voutputt
+!s110 1602332643
+!i10b 1
+!s100 Wm;[L2j?9VD3kCMfcTk<>0
+IiOjdR_Y;S0fC`^i7W[g3H2
+R0
+R1
+w1602332516
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/outputt.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/outputt.v
+L0 1
+R2
+r1
+!s85 0
+31
+!s108 1602332643.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/outputt.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/outputt.v|
+!i113 1
+R3
+R4
+vregg
+!s110 1602365058
+!i10b 1
+!s100 ZW<XLZYZ;U]EBK]S8zQWa0
+Iz`;0Qj]7m=GJf9X8Z3iRh2
+R0
+R1
+w1602362333
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/regg.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/regg.v
+L0 1
+R2
+r1
+!s85 0
+31
+!s108 1602365058.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/regg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/src/regg.v|
+!i113 1
+R3
+R4
+vtest_tb
+!s110 1602367660
+!i10b 1
+!s100 U0cG5o65C=Pzik:l5WWc23
+IKZAXR1cl9b2^3^@ml<MC<1
+R0
+R1
+w1602367654
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/tb/test_tb.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/tb/test_tb.v
+L0 3
+R2
+r1
+!s85 0
+31
+!s108 1602367659.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/tb/test_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/TEST_003/tb/test_tb.v|
+!i113 1
+R3
+R4

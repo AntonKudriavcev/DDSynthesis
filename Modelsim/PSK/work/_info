@@ -1,0 +1,141 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_pro/18.1
+vLFM_phase_accum
+!s110 1602889924
+!i10b 1
+!s100 EBSOa;jo42:<VSSc`CSBf2
+I1mgQbDn_lYHC[nJ^3>_HU1
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+Z1 dD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/LFM
+w1602889911
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/LFM/src/LFM_phase_accum.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/LFM/src/LFM_phase_accum.v
+L0 2
+Z2 OV;L;10.6d;65
+r1
+!s85 0
+31
+!s108 1602889924.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/LFM/src/LFM_phase_accum.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/LFM/src/LFM_phase_accum.v|
+!i113 1
+Z3 o-work work
+Z4 tCvgOpt 0
+n@l@f@m_phase_accum
+vLFM_tb
+!s110 1602889763
+!i10b 1
+!s100 HVG9;Sf8dm[XKN`R@kV;O3
+IH:g2U:2S<oOPS5;aM=TZN0
+R0
+R1
+w1602889656
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/LFM/tb/LFM_tb.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/LFM/tb/LFM_tb.v
+L0 5
+R2
+r1
+!s85 0
+31
+!s108 1602889763.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/LFM/tb/LFM_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/LFM/tb/LFM_tb.v|
+!i113 1
+R3
+R4
+n@l@f@m_tb
+voutput_reg
+Z5 !s110 1604185240
+!i10b 1
+!s100 RKeziZZmcRB:AURDK=4MS1
+IU:eUZDTBmBAgG_WR<J13U3
+R0
+Z6 dD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/PSK
+w1602530330
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/PSK/src/output_reg.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/PSK/src/output_reg.v
+L0 2
+R2
+r1
+!s85 0
+31
+!s108 1604185239.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/PSK/src/output_reg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/PSK/src/output_reg.v|
+!i113 1
+R3
+R4
+vPSK_phase_accum
+!s110 1604185375
+!i10b 1
+!s100 2NnmNH>O^<>ZOE2:YLeX:3
+I;iQk^I[YM`aXgF`d7[X1@3
+R0
+R6
+w1604185367
+8D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\PSK\src\PSK_phase_accum.v
+FD:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\PSK\src\PSK_phase_accum.v
+L0 2
+R2
+r1
+!s85 0
+31
+!s108 1604185375.000000
+!s107 D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\PSK\src\PSK_phase_accum.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\PSK\src\PSK_phase_accum.v|
+!i113 1
+R3
+R4
+n@p@s@k_phase_accum
+vPSK_tb
+R5
+!i10b 1
+!s100 ^1IIBUl=<<1HcFDe:C9ZF1
+IcMd<F6?7z?ZUi1nHi`]GW0
+R0
+R6
+w1604175312
+8D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\PSK\tb\PSK_tb.v
+FD:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\PSK\tb\PSK_tb.v
+L0 5
+R2
+r1
+!s85 0
+31
+Z7 !s108 1604185240.000000
+!s107 D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\PSK\tb\PSK_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\PSK\tb\PSK_tb.v|
+!i113 1
+R3
+R4
+n@p@s@k_tb
+vROM
+R5
+!i10b 1
+!s100 <1AElaG[zDLEhgSkziOT]0
+I<FO8La?6PF=^e[b4]MjW?3
+R0
+R6
+w1602280672
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v
+L0 39
+R2
+r1
+!s85 0
+31
+R7
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v|
+!i113 1
+R3
+R4
+n@r@o@m

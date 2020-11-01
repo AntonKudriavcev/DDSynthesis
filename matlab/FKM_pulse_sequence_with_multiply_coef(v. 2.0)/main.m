@@ -9,7 +9,7 @@ f_carrier   = 1.3e9; % Hz
 f_sampling  = 26e9;  % Hz
 
 bit_depth = 12;
-mult_coef = 16384;
+freq_mult_coef = 16384;
 array_dimention  = 2^bit_depth;
 
 DAC_bit_resolution = 12;
@@ -39,11 +39,9 @@ num_of_sin_points  = (round(t_impulse/t_disc));
 
 sin_points = floor((sin(0:(2*pi/(array_dimention - 1)):2*pi) + 1)/2 * (2^DAC_bit_resolution - 1));
 
-sin_phase_points = phase_accum(num_of_sin_points, array_dimention, mult_coef, f_carrier, f_sampling);
+sin_phase_points = phase_accum(num_of_sin_points, array_dimention, freq_mult_coef, f_carrier, f_sampling);
 
 sin_points = sin_points(sin_phase_points);
-
-sin_points = gen_of_FKM(num_of_sin_points, sin_points, DAC_bit_resolution);
 
 %-zero points generator--------------------------------------------------------
 

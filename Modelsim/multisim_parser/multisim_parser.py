@@ -42,7 +42,7 @@ print('Oкругленное количество отсчетов в сигна
 
 ##-----------------------------------------------------------------------------
 
-path = 'D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/PSK/data/output_signal.txt'
+path = 'D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/NOISE/data/output_signal.txt'
 
 with open(path) as file:
     data = file.read().split()
@@ -60,6 +60,15 @@ for i in range(len(data)):
 
 
 signal = np.array(signal[0:num_of_samples])
+
+m_tr     = int(2**DAC_bit_resolution/2 - 1) ## требуемое значение матожидания выходного процесса
+sigma_tr = int(m_tr/3) ## требуемое значение СКО выходного процесса
+
+x = np.linspace(0, 4095, 4096)
+w = 1/(np.sqrt(2*np.pi) * sigma_tr) * np.exp(-(x - m_tr)**2/(2*sigma_tr**2))
+plt.hist(signal, bins = 100, density = True)
+plt.plot(x, w)
+plt.show()
 
 # fig, (ax1, ax2) = plt.subplots(nrows = 2, ncols = 1)
 
@@ -87,3 +96,5 @@ acf = 10 * np.log10(acf)
 plt.plot(acf)
 plt.grid()
 plt.show()
+
+

@@ -117,8 +117,8 @@ module LFM_phase_accum(
                         end else begin // generate zero samples between impulses 
                             address = 0;
                             if (samples_counter == (num_of_curr_imp * period_samples)) begin
+                                accum = 0;
                                 num_of_curr_imp = num_of_curr_imp + 1;
-
                                 imp_samples_counter = 0;
                             end
                         end 

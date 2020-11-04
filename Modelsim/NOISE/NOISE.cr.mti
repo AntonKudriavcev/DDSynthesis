@@ -1,0 +1,22 @@
+D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/NOISE/tb/noise_tb.v {1 {vlog -work work -stats=none {D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\NOISE\tb\noise_tb.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module noise_tb
+
+Top level modules:
+	noise_tb
+
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/NOISE/src/buffer.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/NOISE/src/buffer.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module buffer
+
+Top level modules:
+	buffer
+
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/NOISE/src/output_reg.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/NOISE/src/output_reg.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module output_reg
+
+Top level modules:
+	output_reg
+
+} {} {}}

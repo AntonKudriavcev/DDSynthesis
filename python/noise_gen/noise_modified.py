@@ -4,7 +4,7 @@
 ##-----------------------------------------------------------------------------
 
 import numpy as np
-from scipy import signal
+
 from matplotlib import pyplot as plt
 
 
@@ -184,7 +184,7 @@ plotter(average_probability_density[scaling_coef], 'Усредненная га�
 # print('Площадь под функцией полотности вероятности = ',             sum(probability_density))
 print('Площадь под усредненной функцией полотности вероятности = ', sum(average_probability_density))
 
-uniform_rnd_values = create_average_uniform_values(1, sum(average_probability_density), 100000) ## генерирование массива равном. распр. сл.величин от 1 до sum(average_probability_density)
+uniform_rnd_values = create_average_uniform_values(1, sum(average_probability_density), 50000) ## генерирование массива равном. распр. сл.величин от 1 до sum(average_probability_density)
 # plotter(uniform_rnd_values, 'Сл. величины, распр. равномерно', 5, show = 0)
 
 avg_gauss_values = np.array(uniform_to_gauss_convertor(uniform_rnd_values, average_probability_density), dtype = 'longlong' ) ## преобразование равнорм. сл.в в норм. распр сл.в

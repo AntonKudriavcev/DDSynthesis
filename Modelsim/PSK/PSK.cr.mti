@@ -1,23 +1,16 @@
-D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/PSK/tb/PSK_tb.v {1 {vlog -work work -stats=none {D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\PSK\tb\PSK_tb.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module PSK_tb
-
-Top level modules:
-	PSK_tb
-
-} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v
+D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
 -- Compiling module ROM
 
 Top level modules:
 	ROM
 
-} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/PSK/src/PSK_phase_accum.v {1 {vlog -work work -stats=none {D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\PSK\src\PSK_phase_accum.v}
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/PSK/tb/PSK_tb.v {1 {vlog -work work -stats=none {D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\PSK\tb\PSK_tb.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module PSK_phase_accum
+-- Compiling module PSK_tb
 
 Top level modules:
-	PSK_phase_accum
+	PSK_tb
 
 } {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/PSK/src/output_reg.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/PSK/src/output_reg.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
@@ -25,5 +18,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 2
 
 Top level modules:
 	output_reg
+
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/PSK/src/PSK_phase_accum.v {1 {vlog -work work -stats=none {D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\PSK\src\PSK_phase_accum.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module PSK_phase_accum
+
+Top level modules:
+	PSK_phase_accum
 
 } {} {}}

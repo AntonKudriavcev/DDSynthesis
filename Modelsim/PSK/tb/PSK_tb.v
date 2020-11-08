@@ -13,7 +13,6 @@ module PSK_tb;
     reg    [ 9:0] t_impulse;  // from 60 to 650us  (1023us)
     reg    [12:0] t_period;   // from 360 to 6500us(8191us)
     reg    [ 4:0] num_of_imp; // from 0 to 31
-    reg    [21:0] deviation;  // from 2 to 4MHz    (4.19MHz)
     reg           sign_start_gen;
 
     wire   [11:0] ROM_address;

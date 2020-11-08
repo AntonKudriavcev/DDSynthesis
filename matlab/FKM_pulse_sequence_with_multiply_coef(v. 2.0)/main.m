@@ -6,7 +6,7 @@ clear all;
 %-user variable----------------------------------------------------------------
 
 f_carrier   = 1.3e9; % Hz
-f_sampling  = 26e9;  % Hz
+f_sampling  = 13e9;  % Hz
 
 bit_depth = 12;
 freq_mult_coef = 16384;
@@ -17,7 +17,7 @@ DAC_output_voltage = 3.3;
 
 %-user param---------------
 
-t_impulse    = 60e-6; % sec
+t_impulse    = 10e-6; % sec
 t_repetition = 400e-6;
 num_of_impulse = 1;
 
@@ -54,6 +54,7 @@ end
 %-output signal generator------------------------------------------------------
 
 DAC_input_signal = collect_a_packet(num_of_impulse, sin_points, num_of_zero_points, DAC_bit_resolution);
+DAC_input_signal(end-200:end)
 output_signal = output_signal_conv(DAC_input_signal, DAC_bit_resolution, DAC_output_voltage);
 
 %------------------------------------------------------------------------------
@@ -103,7 +104,7 @@ grid on;
 
 % plotting ACF
 figure(4);
-acf = (xcorr(output_signal));
+acf = abs(xcorr(output_signal));
 acf = acf/max(acf);
 tau = -time_of_simulation:2*time_of_simulation/(length(acf) - 1):time_of_simulation;
 plot(tau, acf);

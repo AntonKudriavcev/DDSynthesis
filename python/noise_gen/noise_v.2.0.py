@@ -36,7 +36,9 @@ u  = 1
 bit_deph = 36 ## разрядность случайной величины, моделируемой конгруэнтным генератором
 z_curr = int(2**(m - 2) - 1) ## начальное значение для конгруэнтного генератора
 print(z_curr)
-for i in range(80000): 
+result = [4095]
+
+for i in range(130000-1): 
     
 ## непонятно почему, но это тоже работает :)
 
@@ -73,30 +75,35 @@ for i in range(80000):
         z.append(((z_next >> (bit_deph - m)) & (2**m - 1)))
         z_curr = z_next
 
-    rnd = sum(z)
+    rnd = (sum(z) & (2**37 - 1))
 
     z = []
 
-    rnd = int((rnd * sigma_tr)/sigma_compens - m_calc) & (2**DAC_bit_res - 1)
+    var = int(rnd * sigma_tr)
+    var = int(var/sigma_compens)
+
+    rnd = int(var - m_calc) & (2**DAC_bit_res - 1)
 
     result.append(rnd)
 
-
-fig, (ax1, ax2) = plt.subplots(nrows = 2, ncols = 1)
-x = np.linspace(0, 4095, 4096)
-w = 1/(np.sqrt(2*np.pi) * sigma_tr) * np.exp(-(x - m_tr)**2/(2*sigma_tr**2))
-ax1.hist(result, bins = 100, density = True)
-ax1.grid()
-ax1.plot(x, w)
+# fig, (ax1, ax2) = plt.subplots(nrows = 2, ncols = 1)
+# x = np.linspace(0, 4095, 4096)
+# w = 1/(np.sqrt(2*np.pi) * sigma_tr) * np.exp(-(x - m_tr)**2/(2*sigma_tr**2))
+# ax1.hist(result, bins = 100, density = True)
+# ax1.grid()
+# ax1.plot(x, w)
 
 result = np.array(result)
+
 result = result/(2**DAC_bit_res - 1) - 0.5
+
+print(result[10000:10010])
 
 acf = abs(np.correlate(result, result, 'full'))
 acf /= acf.max()
 acf = 10 * np.log10(acf)
-ax2.plot(acf)
+plt.plot(acf)
 
-ax2.grid()
+plt.grid()
 
 plt.show()

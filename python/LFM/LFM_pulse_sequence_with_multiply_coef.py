@@ -100,7 +100,7 @@ zero_points        = np.longlong((np.zeros(num_of_zero_points, dtype= np.int32) 
 
 output_signal = collect_a_packet(num_of_impulse, sin_points, zero_points)
 
-# print(output_signal[59800:60000])
+print(output_signal[1])
 
 ##-----------------------------------------------------------------------------
 

@@ -1,0 +1,1159 @@
+Analysis & Synthesis report for Test_002
+Mon Nov 16 18:43:56 2020
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Analysis & Synthesis IP Cores Summary
+ 11. State Machine - |digital_synthesizer_v1|output_reg:output_reg|signal_type
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Source assignments for ROM:ROM|altsyncram:altsyncram_component|altsyncram_jjj1:auto_generated
+ 18. Parameter Settings for User Entity Instance: LFM_phase_accum:LFM_phase_accum
+ 19. Parameter Settings for User Entity Instance: PSK_phase_accum:PSK_phase_accum
+ 20. Parameter Settings for User Entity Instance: noise_generator:noise_generator
+ 21. Parameter Settings for User Entity Instance: ROM:ROM|altsyncram:altsyncram_component
+ 22. Parameter Settings for User Entity Instance: output_reg:output_reg
+ 23. Parameter Settings for Inferred Entity Instance: LFM_phase_accum:LFM_phase_accum|lpm_divide:Div0
+ 24. Parameter Settings for Inferred Entity Instance: LFM_phase_accum:LFM_phase_accum|lpm_divide:Div2
+ 25. Parameter Settings for Inferred Entity Instance: PSK_phase_accum:PSK_phase_accum|lpm_divide:Div2
+ 26. Parameter Settings for Inferred Entity Instance: LFM_phase_accum:LFM_phase_accum|lpm_divide:Div1
+ 27. Parameter Settings for Inferred Entity Instance: PSK_phase_accum:PSK_phase_accum|lpm_divide:Div0
+ 28. Parameter Settings for Inferred Entity Instance: PSK_phase_accum:PSK_phase_accum|lpm_divide:Div1
+ 29. Parameter Settings for Inferred Entity Instance: noise_generator:noise_generator|lpm_divide:Div0
+ 30. altsyncram Parameter Settings by Entity Instance
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
+ 34. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Nov 16 18:43:55 2020           ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Revision Name                   ; Test_002                                        ;
+; Top-level Entity Name           ; digital_synthesizer_v1                          ;
+; Family                          ; Arria V                                         ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 752                                             ;
+; Total pins                      ; 99                                              ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 49,152                                          ;
+; Total DSP Blocks                ; 21                                              ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                 ;
++---------------------------------------------------------------------------------+------------------------+--------------------+
+; Option                                                                          ; Setting                ; Default Value      ;
++---------------------------------------------------------------------------------+------------------------+--------------------+
+; Device                                                                          ; 5AGXFB5K4F40I3         ;                    ;
+; Top-level entity name                                                           ; digital_synthesizer_v1 ; Test_002           ;
+; Family name                                                                     ; Arria V                ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                    ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                     ; On                 ;
+; Enable compact report table                                                     ; Off                    ; Off                ;
+; Restructure Multiplexers                                                        ; Auto                   ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                    ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                    ; Off                ;
+; Preserve fewer node names                                                       ; On                     ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable                 ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001           ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993              ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto                   ; Auto               ;
+; Safe State Machine                                                              ; Off                    ; Off                ;
+; Extract Verilog State Machines                                                  ; On                     ; On                 ;
+; Extract VHDL State Machines                                                     ; On                     ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                    ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000                   ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                    ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                     ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                     ; On                 ;
+; Parallel Synthesis                                                              ; On                     ; On                 ;
+; DSP Block Balancing                                                             ; Auto                   ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                     ; On                 ;
+; Power-Up Don't Care                                                             ; On                     ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                    ; Off                ;
+; Remove Duplicate Registers                                                      ; On                     ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                    ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                    ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                    ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                    ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                    ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                     ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                    ; Off                ;
+; Optimization Technique                                                          ; Balanced               ; Balanced           ;
+; Carry Chain Length                                                              ; 70                     ; 70                 ;
+; Auto Carry Chains                                                               ; On                     ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                     ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                    ; Off                ;
+; Auto ROM Replacement                                                            ; On                     ; On                 ;
+; Auto RAM Replacement                                                            ; On                     ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                     ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto                   ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                   ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                     ; On                 ;
+; Strict RAM Replacement                                                          ; Off                    ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                     ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                    ; Off                ;
+; Auto Resource Sharing                                                           ; Off                    ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                    ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                    ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                    ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                     ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                    ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                     ; On                 ;
+; Report Parameter Settings                                                       ; On                     ; On                 ;
+; Report Source Assignments                                                       ; On                     ; On                 ;
+; Report Connectivity Checks                                                      ; On                     ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                    ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                      ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation     ; Normal compilation ;
+; HDL message level                                                               ; Level2                 ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                    ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                   ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                   ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                    ; 100                ;
+; Clock MUX Protection                                                            ; On                     ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                    ; Off                ;
+; Block Design Naming                                                             ; Auto                   ; Auto               ;
+; SDC constraint protection                                                       ; Off                    ; Off                ;
+; Synthesis Effort                                                                ; Auto                   ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                     ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                    ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium                 ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                   ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                     ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                     ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                    ; Off                ;
++---------------------------------------------------------------------------------+------------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                  ;
++--------------------------------------------------------------------------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                                                 ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                                    ; Library ;
++--------------------------------------------------------------------------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------------------------------+---------+
+; ../../Modelsim/digital_synthesizer_v1.1/src/signal_mux.v                                         ; yes             ; User Verilog HDL File                  ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v             ;         ;
+; ../../Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v                                    ; yes             ; User Verilog HDL File                  ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v        ;         ;
+; ../../Modelsim/digital_synthesizer_v1.1/src/output_reg.v                                         ; yes             ; User Verilog HDL File                  ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/output_reg.v             ;         ;
+; ../../Modelsim/digital_synthesizer_v1.1/src/noise_generator.v                                    ; yes             ; User Verilog HDL File                  ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v        ;         ;
+; ../../Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v                                    ; yes             ; User Verilog HDL File                  ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v        ;         ;
+; ../../Modelsim/digital_synthesizer_v1.1/src/digital_synthesizer_v1.v                             ; yes             ; User Verilog HDL File                  ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/digital_synthesizer_v1.v ;         ;
+; ../../Modelsim/digital_synthesizer_v1.1/src/buffer.v                                             ; yes             ; User Verilog HDL File                  ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v                 ;         ;
+; ROM.v                                                                                            ; yes             ; User Wizard-Generated File             ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v                                         ;         ;
+; altsyncram.tdf                                                                                   ; yes             ; Megafunction                           ; d:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf                                                ;         ;
+; stratix_ram_block.inc                                                                            ; yes             ; Megafunction                           ; d:/intelfpga/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                         ;         ;
+; lpm_mux.inc                                                                                      ; yes             ; Megafunction                           ; d:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_mux.inc                                                   ;         ;
+; lpm_decode.inc                                                                                   ; yes             ; Megafunction                           ; d:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_decode.inc                                                ;         ;
+; aglobal181.inc                                                                                   ; yes             ; Megafunction                           ; d:/intelfpga/18.1/quartus/libraries/megafunctions/aglobal181.inc                                                ;         ;
+; a_rdenreg.inc                                                                                    ; yes             ; Megafunction                           ; d:/intelfpga/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                 ;         ;
+; altrom.inc                                                                                       ; yes             ; Megafunction                           ; d:/intelfpga/18.1/quartus/libraries/megafunctions/altrom.inc                                                    ;         ;
+; altram.inc                                                                                       ; yes             ; Megafunction                           ; d:/intelfpga/18.1/quartus/libraries/megafunctions/altram.inc                                                    ;         ;
+; altdpram.inc                                                                                     ; yes             ; Megafunction                           ; d:/intelfpga/18.1/quartus/libraries/megafunctions/altdpram.inc                                                  ;         ;
+; db/altsyncram_jjj1.tdf                                                                           ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/altsyncram_jjj1.tdf                        ;         ;
+; /study/6_year/diploma/diploma/code/ddsynthesis/modelsim/sin_points_look_up_table_creator/sin.hex ; yes             ; Auto-Found Memory Initialization File  ; /study/6_year/diploma/diploma/code/ddsynthesis/modelsim/sin_points_look_up_table_creator/sin.hex                ;         ;
+; lpm_divide.tdf                                                                                   ; yes             ; Megafunction                           ; d:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_divide.tdf                                                ;         ;
+; abs_divider.inc                                                                                  ; yes             ; Megafunction                           ; d:/intelfpga/18.1/quartus/libraries/megafunctions/abs_divider.inc                                               ;         ;
+; sign_div_unsign.inc                                                                              ; yes             ; Megafunction                           ; d:/intelfpga/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                           ;         ;
+; db/lpm_divide_g6m.tdf                                                                            ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/lpm_divide_g6m.tdf                         ;         ;
+; db/sign_div_unsign_knh.tdf                                                                       ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/sign_div_unsign_knh.tdf                    ;         ;
+; db/alt_u_div_gse.tdf                                                                             ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/alt_u_div_gse.tdf                          ;         ;
+; db/lpm_divide_96m.tdf                                                                            ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/lpm_divide_96m.tdf                         ;         ;
+; db/sign_div_unsign_dnh.tdf                                                                       ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/sign_div_unsign_dnh.tdf                    ;         ;
+; db/alt_u_div_2se.tdf                                                                             ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/alt_u_div_2se.tdf                          ;         ;
+; db/lpm_divide_a6m.tdf                                                                            ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/lpm_divide_a6m.tdf                         ;         ;
+; db/sign_div_unsign_enh.tdf                                                                       ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/sign_div_unsign_enh.tdf                    ;         ;
+; db/alt_u_div_4se.tdf                                                                             ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/alt_u_div_4se.tdf                          ;         ;
+; db/lpm_divide_f6m.tdf                                                                            ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/lpm_divide_f6m.tdf                         ;         ;
+; db/sign_div_unsign_jnh.tdf                                                                       ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/sign_div_unsign_jnh.tdf                    ;         ;
+; db/alt_u_div_ese.tdf                                                                             ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/alt_u_div_ese.tdf                          ;         ;
+; db/lpm_divide_36m.tdf                                                                            ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/lpm_divide_36m.tdf                         ;         ;
+; db/sign_div_unsign_7nh.tdf                                                                       ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/sign_div_unsign_7nh.tdf                    ;         ;
+; db/alt_u_div_mre.tdf                                                                             ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/alt_u_div_mre.tdf                          ;         ;
+; db/lpm_divide_c6m.tdf                                                                            ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/lpm_divide_c6m.tdf                         ;         ;
+; db/sign_div_unsign_gnh.tdf                                                                       ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/sign_div_unsign_gnh.tdf                    ;         ;
+; db/alt_u_div_8se.tdf                                                                             ; yes             ; Auto-Generated Megafunction            ; D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/alt_u_div_8se.tdf                          ;         ;
++--------------------------------------------------------------------------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 6312      ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 12404     ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 151       ;
+;     -- 5 input functions                    ; 2248      ;
+;     -- 4 input functions                    ; 3809      ;
+;     -- <=3 input functions                  ; 6196      ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 752       ;
+;                                             ;           ;
+; I/O pins                                    ; 99        ;
+; Total MLAB memory bits                      ; 0         ;
+; Total block memory bits                     ; 49152     ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 21        ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 764       ;
+; Total fan-out                               ; 46867     ;
+; Average fan-out                             ; 3.50      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                  ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                     ; Entity Name            ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
+; |digital_synthesizer_v1                   ; 12404 (0)           ; 752 (0)                   ; 49152             ; 21         ; 99   ; 0            ; |digital_synthesizer_v1                                                                                                                                 ; digital_synthesizer_v1 ; work         ;
+;    |LFM_phase_accum:LFM_phase_accum|      ; 6695 (414)          ; 284 (284)                 ; 0                 ; 10         ; 0    ; 0            ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum                                                                                                 ; LFM_phase_accum        ; work         ;
+;       |lpm_divide:Div0|                   ; 2165 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|lpm_divide:Div0                                                                                 ; lpm_divide             ; work         ;
+;          |lpm_divide_g6m:auto_generated|  ; 2165 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|lpm_divide:Div0|lpm_divide_g6m:auto_generated                                                   ; lpm_divide_g6m         ; work         ;
+;             |sign_div_unsign_knh:divider| ; 2165 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|lpm_divide:Div0|lpm_divide_g6m:auto_generated|sign_div_unsign_knh:divider                       ; sign_div_unsign_knh    ; work         ;
+;                |alt_u_div_gse:divider|    ; 2165 (2165)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|lpm_divide:Div0|lpm_divide_g6m:auto_generated|sign_div_unsign_knh:divider|alt_u_div_gse:divider ; alt_u_div_gse          ; work         ;
+;       |lpm_divide:Div1|                   ; 1951 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|lpm_divide:Div1                                                                                 ; lpm_divide             ; work         ;
+;          |lpm_divide_a6m:auto_generated|  ; 1951 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|lpm_divide:Div1|lpm_divide_a6m:auto_generated                                                   ; lpm_divide_a6m         ; work         ;
+;             |sign_div_unsign_enh:divider| ; 1951 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|lpm_divide:Div1|lpm_divide_a6m:auto_generated|sign_div_unsign_enh:divider                       ; sign_div_unsign_enh    ; work         ;
+;                |alt_u_div_4se:divider|    ; 1951 (1951)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|lpm_divide:Div1|lpm_divide_a6m:auto_generated|sign_div_unsign_enh:divider|alt_u_div_4se:divider ; alt_u_div_4se          ; work         ;
+;       |lpm_divide:Div2|                   ; 2165 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|lpm_divide:Div2                                                                                 ; lpm_divide             ; work         ;
+;          |lpm_divide_g6m:auto_generated|  ; 2165 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|lpm_divide:Div2|lpm_divide_g6m:auto_generated                                                   ; lpm_divide_g6m         ; work         ;
+;             |sign_div_unsign_knh:divider| ; 2165 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|lpm_divide:Div2|lpm_divide_g6m:auto_generated|sign_div_unsign_knh:divider                       ; sign_div_unsign_knh    ; work         ;
+;                |alt_u_div_gse:divider|    ; 2165 (2165)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|lpm_divide:Div2|lpm_divide_g6m:auto_generated|sign_div_unsign_knh:divider|alt_u_div_gse:divider ; alt_u_div_gse          ; work         ;
+;    |PSK_phase_accum:PSK_phase_accum|      ; 4173 (324)          ; 268 (268)                 ; 0                 ; 9          ; 0    ; 0            ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum                                                                                                 ; PSK_phase_accum        ; work         ;
+;       |lpm_divide:Div0|                   ; 2063 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|lpm_divide:Div0                                                                                 ; lpm_divide             ; work         ;
+;          |lpm_divide_f6m:auto_generated|  ; 2063 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|lpm_divide:Div0|lpm_divide_f6m:auto_generated                                                   ; lpm_divide_f6m         ; work         ;
+;             |sign_div_unsign_jnh:divider| ; 2063 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|lpm_divide:Div0|lpm_divide_f6m:auto_generated|sign_div_unsign_jnh:divider                       ; sign_div_unsign_jnh    ; work         ;
+;                |alt_u_div_ese:divider|    ; 2063 (2063)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|lpm_divide:Div0|lpm_divide_f6m:auto_generated|sign_div_unsign_jnh:divider|alt_u_div_ese:divider ; alt_u_div_ese          ; work         ;
+;       |lpm_divide:Div1|                   ; 433 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|lpm_divide:Div1                                                                                 ; lpm_divide             ; work         ;
+;          |lpm_divide_36m:auto_generated|  ; 433 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|lpm_divide:Div1|lpm_divide_36m:auto_generated                                                   ; lpm_divide_36m         ; work         ;
+;             |sign_div_unsign_7nh:divider| ; 433 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|lpm_divide:Div1|lpm_divide_36m:auto_generated|sign_div_unsign_7nh:divider                       ; sign_div_unsign_7nh    ; work         ;
+;                |alt_u_div_mre:divider|    ; 433 (433)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|lpm_divide:Div1|lpm_divide_36m:auto_generated|sign_div_unsign_7nh:divider|alt_u_div_mre:divider ; alt_u_div_mre          ; work         ;
+;       |lpm_divide:Div2|                   ; 1353 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|lpm_divide:Div2                                                                                 ; lpm_divide             ; work         ;
+;          |lpm_divide_96m:auto_generated|  ; 1353 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|lpm_divide:Div2|lpm_divide_96m:auto_generated                                                   ; lpm_divide_96m         ; work         ;
+;             |sign_div_unsign_dnh:divider| ; 1353 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|lpm_divide:Div2|lpm_divide_96m:auto_generated|sign_div_unsign_dnh:divider                       ; sign_div_unsign_dnh    ; work         ;
+;                |alt_u_div_2se:divider|    ; 1353 (1353)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|lpm_divide:Div2|lpm_divide_96m:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_2se:divider ; alt_u_div_2se          ; work         ;
+;    |ROM:ROM|                              ; 0 (0)               ; 0 (0)                     ; 49152             ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|ROM:ROM                                                                                                                         ; ROM                    ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 49152             ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|ROM:ROM|altsyncram:altsyncram_component                                                                                         ; altsyncram             ; work         ;
+;          |altsyncram_jjj1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 49152             ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|ROM:ROM|altsyncram:altsyncram_component|altsyncram_jjj1:auto_generated                                                          ; altsyncram_jjj1        ; work         ;
+;    |buffer:buffer|                        ; 0 (0)               ; 36 (36)                   ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|buffer:buffer                                                                                                                   ; buffer                 ; work         ;
+;    |noise_generator:noise_generator|      ; 1505 (638)          ; 115 (115)                 ; 0                 ; 2          ; 0    ; 0            ; |digital_synthesizer_v1|noise_generator:noise_generator                                                                                                 ; noise_generator        ; work         ;
+;       |lpm_divide:Div0|                   ; 867 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|noise_generator:noise_generator|lpm_divide:Div0                                                                                 ; lpm_divide             ; work         ;
+;          |lpm_divide_c6m:auto_generated|  ; 867 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|noise_generator:noise_generator|lpm_divide:Div0|lpm_divide_c6m:auto_generated                                                   ; lpm_divide_c6m         ; work         ;
+;             |sign_div_unsign_gnh:divider| ; 867 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|noise_generator:noise_generator|lpm_divide:Div0|lpm_divide_c6m:auto_generated|sign_div_unsign_gnh:divider                       ; sign_div_unsign_gnh    ; work         ;
+;                |alt_u_div_8se:divider|    ; 867 (867)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|noise_generator:noise_generator|lpm_divide:Div0|lpm_divide_c6m:auto_generated|sign_div_unsign_gnh:divider|alt_u_div_8se:divider ; alt_u_div_8se          ; work         ;
+;    |output_reg:output_reg|                ; 25 (25)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|output_reg:output_reg                                                                                                           ; output_reg             ; work         ;
+;    |signal_mux:signal_mux|                ; 6 (6)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |digital_synthesizer_v1|signal_mux:signal_mux                                                                                                           ; signal_mux             ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                              ;
++-----------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+---------------------------------------------------------+
+; Name                                                                              ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF                                                     ;
++-----------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+---------------------------------------------------------+
+; ROM:ROM|altsyncram:altsyncram_component|altsyncram_jjj1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 4096         ; 12           ; --           ; --           ; 49152 ; ../../Modelsim/sin_points_look_UP_table_creator/sin.hex ;
++-----------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+---------------------------------------------------------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary            ;
++-------------------------------------------+-------------+
+; Statistic                                 ; Number Used ;
++-------------------------------------------+-------------+
+; Two Independent 18x18                     ; 11          ;
+; Independent 18x18 plus 36                 ; 4           ;
+; Sum of two 18x18                          ; 2           ;
+; Independent 27x27                         ; 4           ;
+; Total number of DSP blocks                ; 21          ;
+;                                           ;             ;
+; Fixed Point Unsigned Multiplier           ; 23          ;
+; Fixed Point Dedicated Pre-Adder           ; 1           ;
+; Fixed Point Dedicated Coefficient Storage ; 1           ;
++-------------------------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                             ;
++--------+--------------+---------+--------------+--------------+---------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                 ; IP Include File ;
++--------+--------------+---------+--------------+--------------+---------------------------------+-----------------+
+; Altera ; ROM: 1-PORT  ; 18.1    ; N/A          ; N/A          ; |digital_synthesizer_v1|ROM:ROM ; ROM.v           ;
++--------+--------------+---------+--------------+--------------+---------------------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |digital_synthesizer_v1|output_reg:output_reg|signal_type                                                                      ;
++--------------------------------+--------------------------------+------------------------------+------------------------------+----------------+
+; Name                           ; signal_type._NOISE_SIGNAL_TYPE ; signal_type._PSK_SIGNAL_TYPE ; signal_type._LFM_SIGNAL_TYPE ; signal_type.00 ;
++--------------------------------+--------------------------------+------------------------------+------------------------------+----------------+
+; signal_type.00                 ; 0                              ; 0                            ; 0                            ; 0              ;
+; signal_type._LFM_SIGNAL_TYPE   ; 0                              ; 0                            ; 1                            ; 1              ;
+; signal_type._PSK_SIGNAL_TYPE   ; 0                              ; 1                            ; 0                            ; 1              ;
+; signal_type._NOISE_SIGNAL_TYPE ; 1                              ; 0                            ; 0                            ; 1              ;
++--------------------------------+--------------------------------+------------------------------+------------------------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                          ;
++----------------------------------------------------------+--------------------------------------------------+
+; Register name                                            ; Reason for Removal                               ;
++----------------------------------------------------------+--------------------------------------------------+
+; noise_generator:noise_generator|num_of_samples[24..31]   ; Stuck at GND due to stuck port data_in           ;
+; buffer:buffer|buf_var_2[4]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_2[3]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_2[2]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_2[1]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_2[0]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_2[5]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_2[6]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_2[7]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_2[8]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_2[9]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_2[10]~en                           ; Lost fanout                                      ;
+; buffer:buffer|buf_var_2[11]~en                           ; Lost fanout                                      ;
+; buffer:buffer|buf_var_1[0]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_1[1]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_1[2]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_1[3]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_1[4]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_1[5]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_1[6]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_1[7]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_1[8]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_1[9]~en                            ; Lost fanout                                      ;
+; buffer:buffer|buf_var_1[10]~en                           ; Lost fanout                                      ;
+; buffer:buffer|buf_var_1[11]~en                           ; Lost fanout                                      ;
+; buffer:buffer|BUF_OUT[0]~en                              ; Lost fanout                                      ;
+; buffer:buffer|BUF_OUT[1]~en                              ; Lost fanout                                      ;
+; buffer:buffer|BUF_OUT[2]~en                              ; Lost fanout                                      ;
+; buffer:buffer|BUF_OUT[3]~en                              ; Lost fanout                                      ;
+; buffer:buffer|BUF_OUT[4]~en                              ; Lost fanout                                      ;
+; buffer:buffer|BUF_OUT[5]~en                              ; Lost fanout                                      ;
+; buffer:buffer|BUF_OUT[6]~en                              ; Lost fanout                                      ;
+; buffer:buffer|BUF_OUT[7]~en                              ; Lost fanout                                      ;
+; buffer:buffer|BUF_OUT[8]~en                              ; Lost fanout                                      ;
+; buffer:buffer|BUF_OUT[9]~en                              ; Lost fanout                                      ;
+; buffer:buffer|BUF_OUT[10]~en                             ; Lost fanout                                      ;
+; buffer:buffer|BUF_OUT[11]~en                             ; Lost fanout                                      ;
+; signal_mux:signal_mux|MUX_OUT[0]~en                      ; Lost fanout                                      ;
+; signal_mux:signal_mux|MUX_OUT[1]~en                      ; Lost fanout                                      ;
+; signal_mux:signal_mux|MUX_OUT[2]~en                      ; Lost fanout                                      ;
+; signal_mux:signal_mux|MUX_OUT[3]~en                      ; Lost fanout                                      ;
+; signal_mux:signal_mux|MUX_OUT[4]~en                      ; Lost fanout                                      ;
+; signal_mux:signal_mux|MUX_OUT[5]~en                      ; Lost fanout                                      ;
+; signal_mux:signal_mux|MUX_OUT[6]~en                      ; Lost fanout                                      ;
+; signal_mux:signal_mux|MUX_OUT[7]~en                      ; Lost fanout                                      ;
+; signal_mux:signal_mux|MUX_OUT[8]~en                      ; Lost fanout                                      ;
+; signal_mux:signal_mux|MUX_OUT[9]~en                      ; Lost fanout                                      ;
+; signal_mux:signal_mux|MUX_OUT[10]~en                     ; Lost fanout                                      ;
+; signal_mux:signal_mux|MUX_OUT[11]~en                     ; Lost fanout                                      ;
+; noise_generator:noise_generator|NOISE_OUT[6]~en          ; Lost fanout                                      ;
+; noise_generator:noise_generator|NOISE_OUT[5]~en          ; Lost fanout                                      ;
+; noise_generator:noise_generator|NOISE_OUT[4]~en          ; Lost fanout                                      ;
+; noise_generator:noise_generator|NOISE_OUT[3]~en          ; Lost fanout                                      ;
+; noise_generator:noise_generator|NOISE_OUT[2]~en          ; Lost fanout                                      ;
+; noise_generator:noise_generator|NOISE_OUT[1]~en          ; Lost fanout                                      ;
+; noise_generator:noise_generator|NOISE_OUT[0]~en          ; Lost fanout                                      ;
+; noise_generator:noise_generator|NOISE_OUT[7]~en          ; Lost fanout                                      ;
+; noise_generator:noise_generator|NOISE_OUT[8]~en          ; Lost fanout                                      ;
+; noise_generator:noise_generator|NOISE_OUT[9]~en          ; Lost fanout                                      ;
+; noise_generator:noise_generator|NOISE_OUT[10]~en         ; Lost fanout                                      ;
+; noise_generator:noise_generator|NOISE_OUT[11]~en         ; Lost fanout                                      ;
+; PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[0]~en        ; Lost fanout                                      ;
+; PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[1]~en        ; Lost fanout                                      ;
+; PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[2]~en        ; Lost fanout                                      ;
+; PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[3]~en        ; Lost fanout                                      ;
+; PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[4]~en        ; Lost fanout                                      ;
+; PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[5]~en        ; Lost fanout                                      ;
+; PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[6]~en        ; Lost fanout                                      ;
+; PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[7]~en        ; Lost fanout                                      ;
+; PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[8]~en        ; Lost fanout                                      ;
+; PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[9]~en        ; Lost fanout                                      ;
+; PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[10]~en       ; Lost fanout                                      ;
+; PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[11]~en       ; Lost fanout                                      ;
+; LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[0]~en        ; Lost fanout                                      ;
+; LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[1]~en        ; Lost fanout                                      ;
+; LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[2]~en        ; Lost fanout                                      ;
+; LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[3]~en        ; Lost fanout                                      ;
+; LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[4]~en        ; Lost fanout                                      ;
+; LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[5]~en        ; Lost fanout                                      ;
+; LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[6]~en        ; Lost fanout                                      ;
+; LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[7]~en        ; Lost fanout                                      ;
+; LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[8]~en        ; Lost fanout                                      ;
+; LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[9]~en        ; Lost fanout                                      ;
+; LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[10]~en       ; Lost fanout                                      ;
+; LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[11]~en       ; Lost fanout                                      ;
+; output_reg:output_reg|signal_type~6                      ; Lost fanout                                      ;
+; output_reg:output_reg|signal_type~7                      ; Lost fanout                                      ;
+; output_reg:output_reg|signal_type._LFM_SIGNAL_TYPE       ; Lost fanout                                      ;
+; output_reg:output_reg|signal_type._PSK_SIGNAL_TYPE       ; Lost fanout                                      ;
+; noise_generator:noise_generator|z[1..4]                  ; Merged with noise_generator:noise_generator|z[0] ;
+; PSK_phase_accum:PSK_phase_accum|samples_per_disc[25..33] ; Stuck at GND due to stuck port data_in           ;
+; PSK_phase_accum:PSK_phase_accum|step[25]                 ; Stuck at GND due to stuck port data_in           ;
+; Total Number of Removed Registers = 110                  ;                                                  ;
++----------------------------------------------------------+--------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                   ;
++-------------------------------------+--------------------+----------------------------------------------------+
+; Register name                       ; Reason for Removal ; Registers Removed due to This Register             ;
++-------------------------------------+--------------------+----------------------------------------------------+
+; output_reg:output_reg|signal_type~6 ; Lost Fanouts       ; output_reg:output_reg|signal_type._LFM_SIGNAL_TYPE ;
+; output_reg:output_reg|signal_type~7 ; Lost Fanouts       ; output_reg:output_reg|signal_type._PSK_SIGNAL_TYPE ;
++-------------------------------------+--------------------+----------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 752   ;
+; Number of registers using Synchronous Clear  ; 437   ;
+; Number of registers using Synchronous Load   ; 12    ;
+; Number of registers using Asynchronous Clear ; 4     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 702   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------+
+; Inverted Register Statistics                                  ;
++-----------------------------------------------------+---------+
+; Inverted Register                                   ; Fan out ;
++-----------------------------------------------------+---------+
+; output_reg:output_reg|READY                         ; 8       ;
+; PSK_phase_accum:PSK_phase_accum|current_disc_num[0] ; 3       ;
+; LFM_phase_accum:LFM_phase_accum|num_of_curr_imp[0]  ; 12      ;
+; PSK_phase_accum:PSK_phase_accum|num_of_curr_imp[0]  ; 12      ;
+; PSK_phase_accum:PSK_phase_accum|regg[6]             ; 2       ;
+; PSK_phase_accum:PSK_phase_accum|regg[9]             ; 1       ;
+; Total number of inverted registers = 6              ;         ;
++-----------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |digital_synthesizer_v1|noise_generator:noise_generator|samples_counter[9]  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |digital_synthesizer_v1|noise_generator:noise_generator|z[4]                ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |digital_synthesizer_v1|output_reg:output_reg|counter_start[1]              ;
+; 4:1                ; 21 bits   ; 42 LEs        ; 21 LEs               ; 21 LEs                 ; Yes        ; |digital_synthesizer_v1|noise_generator:noise_generator|z[9]                ;
+; 4:1                ; 22 bits   ; 44 LEs        ; 0 LEs                ; 44 LEs                 ; Yes        ; |digital_synthesizer_v1|noise_generator:noise_generator|z[14]               ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|num_of_curr_imp[1]  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|num_of_curr_imp[4]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |digital_synthesizer_v1|output_reg:output_reg|counter_stop[0]               ;
+; 4:1                ; 111 bits  ; 222 LEs       ; 0 LEs                ; 222 LEs                ; Yes        ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|step[19]            ;
+; 4:1                ; 51 bits   ; 102 LEs       ; 0 LEs                ; 102 LEs                ; Yes        ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|period_samples[9]   ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 0 LEs                ; 96 LEs                 ; Yes        ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|samples_counter[14] ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 0 LEs                ; 96 LEs                 ; Yes        ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|samples_counter[16] ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|address[11]         ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|current_disc_num[5] ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|address[8]          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|regg[8]             ;
+; 6:1                ; 50 bits   ; 200 LEs       ; 0 LEs                ; 200 LEs                ; Yes        ; |digital_synthesizer_v1|PSK_phase_accum:PSK_phase_accum|accum[0]            ;
+; 6:1                ; 50 bits   ; 200 LEs       ; 0 LEs                ; 200 LEs                ; Yes        ; |digital_synthesizer_v1|LFM_phase_accum:LFM_phase_accum|accum[2]            ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |digital_synthesizer_v1|output_reg:output_reg|signal_type                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Source assignments for ROM:ROM|altsyncram:altsyncram_component|altsyncram_jjj1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------+
+; Assignment                      ; Value              ; From ; To                              ;
++---------------------------------+--------------------+------+---------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                               ;
++---------------------------------+--------------------+------+---------------------------------+
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LFM_phase_accum:LFM_phase_accum ;
++------------------+------------------------------------+----------------------+
+; Parameter Name   ; Value                              ; Type                 ;
++------------------+------------------------------------+----------------------+
+; _SAMPLING_FREQ   ; 1100000110110111000100001000000000 ; Unsigned Binary      ;
+; _ARRAY_DIMENTION ; 1000000000000                      ; Unsigned Binary      ;
+; _MULT_COEF       ; 100000000000000                    ; Unsigned Binary      ;
+; _LFM_SIGNAL_TYPE ; 01                                 ; Unsigned Binary      ;
++------------------+------------------------------------+----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: PSK_phase_accum:PSK_phase_accum ;
++------------------+------------------------------------+----------------------+
+; Parameter Name   ; Value                              ; Type                 ;
++------------------+------------------------------------+----------------------+
+; _SAMPLING_FREQ   ; 1100000110110111000100001000000000 ; Unsigned Binary      ;
+; _ARRAY_DIMENTION ; 1000000000000                      ; Unsigned Binary      ;
+; _STEP_MULT_COEF  ; 100000000000000                    ; Unsigned Binary      ;
+; _DISC_MULT_COEF  ; 10000000000                        ; Unsigned Binary      ;
+; _CODE_LEN        ; 1111111111                         ; Unsigned Binary      ;
+; _PSK_SIGNAL_TYPE ; 10                                 ; Unsigned Binary      ;
++------------------+------------------------------------+----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: noise_generator:noise_generator ;
++--------------------+------------------------------------+--------------------+
+; Parameter Name     ; Value                              ; Type               ;
++--------------------+------------------------------------+--------------------+
+; _SAMPLING_FREQ     ; 1100000110110111000100001000000000 ; Unsigned Binary    ;
+; _M_REQ             ; 11111111111                        ; Unsigned Binary    ;
+; _SIGMA_REQ         ; 1010101010                         ; Unsigned Binary    ;
+; _M_COMPENS         ; 1100000000000000110                ; Unsigned Binary    ;
+; _SIGMA_COMPENS     ; 1111111111111111                   ; Unsigned Binary    ;
+; _M_CALC            ; 11111111101                        ; Unsigned Binary    ;
+; _RND_GEN_BIT_DEPH  ; 100100                             ; Unsigned Binary    ;
+; _RND_VAL_BIT_DEPH  ; 10000                              ; Unsigned Binary    ;
+; _Z_INITIAL         ; 11111111111111                     ; Unsigned Binary    ;
+; _L                 ; 11111                              ; Unsigned Binary    ;
+; _U                 ; 1                                  ; Unsigned Binary    ;
+; _NOISE_SIGNAL_TYPE ; 11                                 ; Unsigned Binary    ;
++--------------------+------------------------------------+--------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ROM:ROM|altsyncram:altsyncram_component                          ;
++------------------------------------+---------------------------------------------------------+----------------+
+; Parameter Name                     ; Value                                                   ; Type           ;
++------------------------------------+---------------------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                       ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                                      ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                     ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                                      ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                     ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                                       ; Untyped        ;
+; OPERATION_MODE                     ; ROM                                                     ; Untyped        ;
+; WIDTH_A                            ; 12                                                      ; Signed Integer ;
+; WIDTHAD_A                          ; 12                                                      ; Signed Integer ;
+; NUMWORDS_A                         ; 4096                                                    ; Signed Integer ;
+; OUTDATA_REG_A                      ; CLOCK0                                                  ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                                    ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                                    ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                                    ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                                    ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                                    ; Untyped        ;
+; WIDTH_B                            ; 1                                                       ; Untyped        ;
+; WIDTHAD_B                          ; 1                                                       ; Untyped        ;
+; NUMWORDS_B                         ; 1                                                       ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                                  ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                                  ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                                  ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                                  ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                            ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                                  ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                                    ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                                    ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                                    ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                                    ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                                    ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                                    ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                                       ; Signed Integer ;
+; WIDTH_BYTEENA_B                    ; 1                                                       ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                                    ; Untyped        ;
+; BYTE_SIZE                          ; 8                                                       ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                               ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                                    ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                                    ; Untyped        ;
+; INIT_FILE                          ; ../../Modelsim/sin_points_look_UP_table_creator/sin.hex ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                                  ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                                       ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                                                  ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                                  ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                                                  ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                                  ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                         ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                         ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                                   ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                                   ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                                       ; Untyped        ;
+; DEVICE_FAMILY                      ; Arria V                                                 ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_jjj1                                         ; Untyped        ;
++------------------------------------+---------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: output_reg:output_reg ;
++--------------------+-------+---------------------------------------+
+; Parameter Name     ; Value ; Type                                  ;
++--------------------+-------+---------------------------------------+
+; _DELAY_START       ; 11    ; Unsigned Binary                       ;
+; _DELAY_STOP        ; 11    ; Unsigned Binary                       ;
+; _LFM_SIGNAL_TYPE   ; 01    ; Unsigned Binary                       ;
+; _PSK_SIGNAL_TYPE   ; 10    ; Unsigned Binary                       ;
+; _NOISE_SIGNAL_TYPE ; 11    ; Unsigned Binary                       ;
++--------------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: LFM_phase_accum:LFM_phase_accum|lpm_divide:Div0 ;
++------------------------+----------------+--------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                   ;
++------------------------+----------------+--------------------------------------------------------+
+; LPM_WIDTHN             ; 59             ; Untyped                                                ;
+; LPM_WIDTHD             ; 34             ; Untyped                                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                ;
+; CBXI_PARAMETER         ; lpm_divide_g6m ; Untyped                                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                         ;
++------------------------+----------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: LFM_phase_accum:LFM_phase_accum|lpm_divide:Div2 ;
++------------------------+----------------+--------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                   ;
++------------------------+----------------+--------------------------------------------------------+
+; LPM_WIDTHN             ; 59             ; Untyped                                                ;
+; LPM_WIDTHD             ; 34             ; Untyped                                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                ;
+; CBXI_PARAMETER         ; lpm_divide_g6m ; Untyped                                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                         ;
++------------------------+----------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: PSK_phase_accum:PSK_phase_accum|lpm_divide:Div2 ;
++------------------------+----------------+--------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                   ;
++------------------------+----------------+--------------------------------------------------------+
+; LPM_WIDTHN             ; 34             ; Untyped                                                ;
+; LPM_WIDTHD             ; 34             ; Untyped                                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                ;
+; CBXI_PARAMETER         ; lpm_divide_96m ; Untyped                                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                         ;
++------------------------+----------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: LFM_phase_accum:LFM_phase_accum|lpm_divide:Div1 ;
++------------------------+----------------+--------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                   ;
++------------------------+----------------+--------------------------------------------------------+
+; LPM_WIDTHN             ; 46             ; Untyped                                                ;
+; LPM_WIDTHD             ; 23             ; Untyped                                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                ;
+; CBXI_PARAMETER         ; lpm_divide_a6m ; Untyped                                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                         ;
++------------------------+----------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: PSK_phase_accum:PSK_phase_accum|lpm_divide:Div0 ;
++------------------------+----------------+--------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                   ;
++------------------------+----------------+--------------------------------------------------------+
+; LPM_WIDTHN             ; 58             ; Untyped                                                ;
+; LPM_WIDTHD             ; 34             ; Untyped                                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                ;
+; CBXI_PARAMETER         ; lpm_divide_f6m ; Untyped                                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                         ;
++------------------------+----------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: PSK_phase_accum:PSK_phase_accum|lpm_divide:Div1 ;
++------------------------+----------------+--------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                   ;
++------------------------+----------------+--------------------------------------------------------+
+; LPM_WIDTHN             ; 34             ; Untyped                                                ;
+; LPM_WIDTHD             ; 10             ; Untyped                                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                ;
+; CBXI_PARAMETER         ; lpm_divide_36m ; Untyped                                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                         ;
++------------------------+----------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: noise_generator:noise_generator|lpm_divide:Div0 ;
++------------------------+----------------+--------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                   ;
++------------------------+----------------+--------------------------------------------------------+
+; LPM_WIDTHN             ; 37             ; Untyped                                                ;
+; LPM_WIDTHD             ; 16             ; Untyped                                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                ;
+; CBXI_PARAMETER         ; lpm_divide_c6m ; Untyped                                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                         ;
++------------------------+----------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                    ;
++-------------------------------------------+-----------------------------------------+
+; Name                                      ; Value                                   ;
++-------------------------------------------+-----------------------------------------+
+; Number of entity instances                ; 1                                       ;
+; Entity Instance                           ; ROM:ROM|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                     ;
+;     -- WIDTH_A                            ; 12                                      ;
+;     -- NUMWORDS_A                         ; 4096                                    ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                  ;
+;     -- WIDTH_B                            ; 1                                       ;
+;     -- NUMWORDS_B                         ; 1                                       ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                  ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                            ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                    ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                               ;
++-------------------------------------------+-----------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 752                         ;
+;     CLR               ; 4                           ;
+;     ENA               ; 257                         ;
+;     ENA SCLR          ; 433                         ;
+;     ENA SLD           ; 12                          ;
+;     SCLR              ; 4                           ;
+;     plain             ; 42                          ;
+; arriav_io_obuf        ; 12                          ;
+; arriav_lcell_comb     ; 12404                       ;
+;     arith             ; 5227                        ;
+;         0 data inputs ; 341                         ;
+;         1 data inputs ; 1719                        ;
+;         2 data inputs ; 381                         ;
+;         3 data inputs ; 123                         ;
+;         4 data inputs ; 1762                        ;
+;         5 data inputs ; 901                         ;
+;     normal            ; 6480                        ;
+;         1 data inputs ; 50                          ;
+;         2 data inputs ; 2563                        ;
+;         3 data inputs ; 337                         ;
+;         4 data inputs ; 2032                        ;
+;         5 data inputs ; 1347                        ;
+;         6 data inputs ; 151                         ;
+;     shared            ; 697                         ;
+;         0 data inputs ; 11                          ;
+;         1 data inputs ; 71                          ;
+;         2 data inputs ; 484                         ;
+;         3 data inputs ; 116                         ;
+;         4 data inputs ; 15                          ;
+; arriav_mac            ; 21                          ;
+; boundary_port         ; 99                          ;
+; stratixv_ram_block    ; 12                          ;
+;                       ;                             ;
+; Max LUT depth         ; 272.40                      ;
+; Average LUT depth     ; 162.31                      ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:01:47     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+    Info: Processing started: Mon Nov 16 18:40:39 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Test_002 -c Test_002
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /study/6_year/diploma/diploma/code/ddsynthesis/modelsim/digital_synthesizer_v1.1/src/signal_mux.v
+    Info (12023): Found entity 1: signal_mux File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /study/6_year/diploma/diploma/code/ddsynthesis/modelsim/digital_synthesizer_v1.1/src/psk_phase_accum.v
+    Info (12023): Found entity 1: PSK_phase_accum File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /study/6_year/diploma/diploma/code/ddsynthesis/modelsim/digital_synthesizer_v1.1/src/output_reg.v
+    Info (12023): Found entity 1: output_reg File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/output_reg.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /study/6_year/diploma/diploma/code/ddsynthesis/modelsim/digital_synthesizer_v1.1/src/noise_generator.v
+    Info (12023): Found entity 1: noise_generator File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /study/6_year/diploma/diploma/code/ddsynthesis/modelsim/digital_synthesizer_v1.1/src/lfm_phase_accum.v
+    Info (12023): Found entity 1: LFM_phase_accum File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /study/6_year/diploma/diploma/code/ddsynthesis/modelsim/digital_synthesizer_v1.1/src/digital_synthesizer_v1.v
+    Info (12023): Found entity 1: digital_synthesizer_v1 File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/digital_synthesizer_v1.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /study/6_year/diploma/diploma/code/ddsynthesis/modelsim/digital_synthesizer_v1.1/src/buffer.v
+    Info (12023): Found entity 1: buffer File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file rom.v
+    Info (12023): Found entity 1: ROM File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v Line: 39
+Info (12127): Elaborating entity "digital_synthesizer_v1" for the top level hierarchy
+Info (12128): Elaborating entity "LFM_phase_accum" for hierarchy "LFM_phase_accum:LFM_phase_accum" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/digital_synthesizer_v1.v Line: 55
+Warning (10230): Verilog HDL assignment warning at LFM_phase_accum.v(92): truncated value with size 34 to match size of target (24) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 92
+Warning (10230): Verilog HDL assignment warning at LFM_phase_accum.v(93): truncated value with size 34 to match size of target (27) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 93
+Warning (10230): Verilog HDL assignment warning at LFM_phase_accum.v(95): truncated value with size 34 to match size of target (32) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 95
+Warning (10230): Verilog HDL assignment warning at LFM_phase_accum.v(118): truncated value with size 32 to match size of target (24) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 118
+Warning (10230): Verilog HDL assignment warning at LFM_phase_accum.v(136): truncated value with size 26 to match size of target (12) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 136
+Warning (10230): Verilog HDL assignment warning at LFM_phase_accum.v(142): truncated value with size 32 to match size of target (5) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 142
+Info (12128): Elaborating entity "PSK_phase_accum" for hierarchy "PSK_phase_accum:PSK_phase_accum" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/digital_synthesizer_v1.v Line: 70
+Warning (10230): Verilog HDL assignment warning at PSK_phase_accum.v(99): truncated value with size 34 to match size of target (24) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 99
+Warning (10230): Verilog HDL assignment warning at PSK_phase_accum.v(100): truncated value with size 34 to match size of target (27) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 100
+Warning (10230): Verilog HDL assignment warning at PSK_phase_accum.v(102): truncated value with size 34 to match size of target (32) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 102
+Warning (10230): Verilog HDL assignment warning at PSK_phase_accum.v(135): truncated value with size 32 to match size of target (24) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 135
+Warning (10230): Verilog HDL assignment warning at PSK_phase_accum.v(149): truncated value with size 32 to match size of target (26) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 149
+Warning (10230): Verilog HDL assignment warning at PSK_phase_accum.v(153): truncated value with size 32 to match size of target (10) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 153
+Warning (10230): Verilog HDL assignment warning at PSK_phase_accum.v(157): truncated value with size 26 to match size of target (12) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 157
+Warning (10230): Verilog HDL assignment warning at PSK_phase_accum.v(164): truncated value with size 32 to match size of target (5) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 164
+Info (12128): Elaborating entity "noise_generator" for hierarchy "noise_generator:noise_generator" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/digital_synthesizer_v1.v Line: 81
+Warning (10230): Verilog HDL assignment warning at noise_generator.v(66): truncated value with size 34 to match size of target (32) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 66
+Info (12128): Elaborating entity "signal_mux" for hierarchy "signal_mux:signal_mux" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/digital_synthesizer_v1.v Line: 92
+Info (12128): Elaborating entity "buffer" for hierarchy "buffer:buffer" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/digital_synthesizer_v1.v Line: 99
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:ROM" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/digital_synthesizer_v1.v Line: 103
+Info (12128): Elaborating entity "altsyncram" for hierarchy "ROM:ROM|altsyncram:altsyncram_component" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v Line: 81
+Info (12130): Elaborated megafunction instantiation "ROM:ROM|altsyncram:altsyncram_component" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v Line: 81
+Info (12133): Instantiated megafunction "ROM:ROM|altsyncram:altsyncram_component" with the following parameter: File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v Line: 81
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "../../Modelsim/sin_points_look_UP_table_creator/sin.hex"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "4096"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "widthad_a" = "12"
+    Info (12134): Parameter "width_a" = "12"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_jjj1.tdf
+    Info (12023): Found entity 1: altsyncram_jjj1 File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/altsyncram_jjj1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_jjj1" for hierarchy "ROM:ROM|altsyncram:altsyncram_component|altsyncram_jjj1:auto_generated" File: d:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "output_reg" for hierarchy "output_reg:output_reg" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/digital_synthesizer_v1.v Line: 117
+Warning (10230): Verilog HDL assignment warning at output_reg.v(67): truncated value with size 32 to match size of target (2) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/output_reg.v Line: 67
+Warning (10230): Verilog HDL assignment warning at output_reg.v(74): truncated value with size 32 to match size of target (2) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/output_reg.v Line: 74
+Info (10264): Verilog HDL Case Statement information at output_reg.v(81): all case item expressions in this case statement are onehot File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/output_reg.v Line: 81
+Warning (10230): Verilog HDL assignment warning at output_reg.v(93): truncated value with size 32 to match size of target (2) File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/output_reg.v Line: 93
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_2[4]~1" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_2[3]~2" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_2[2]~3" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_2[1]~4" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_2[0]~0" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_2[5]~5" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_2[6]~6" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_2[7]~7" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_2[8]~8" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_2[9]~9" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_2[10]~10" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_2[11]~11" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_1[0]~0" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_1[1]~1" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_1[2]~2" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_1[3]~3" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_1[4]~4" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_1[5]~5" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_1[6]~6" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_1[7]~7" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_1[8]~8" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_1[9]~9" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_1[10]~10" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|buf_var_1[11]~11" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|BUF_OUT[0]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|BUF_OUT[1]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|BUF_OUT[2]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|BUF_OUT[3]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|BUF_OUT[4]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|BUF_OUT[5]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|BUF_OUT[6]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|BUF_OUT[7]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|BUF_OUT[8]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|BUF_OUT[9]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|BUF_OUT[10]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "buffer:buffer|BUF_OUT[11]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/buffer.v Line: 25
+    Warning (13049): Converted tri-state buffer "signal_mux:signal_mux|MUX_OUT[0]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v Line: 46
+    Warning (13049): Converted tri-state buffer "signal_mux:signal_mux|MUX_OUT[1]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v Line: 46
+    Warning (13049): Converted tri-state buffer "signal_mux:signal_mux|MUX_OUT[2]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v Line: 46
+    Warning (13049): Converted tri-state buffer "signal_mux:signal_mux|MUX_OUT[3]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v Line: 46
+    Warning (13049): Converted tri-state buffer "signal_mux:signal_mux|MUX_OUT[4]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v Line: 46
+    Warning (13049): Converted tri-state buffer "signal_mux:signal_mux|MUX_OUT[5]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v Line: 46
+    Warning (13049): Converted tri-state buffer "signal_mux:signal_mux|MUX_OUT[6]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v Line: 46
+    Warning (13049): Converted tri-state buffer "signal_mux:signal_mux|MUX_OUT[7]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v Line: 46
+    Warning (13049): Converted tri-state buffer "signal_mux:signal_mux|MUX_OUT[8]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v Line: 46
+    Warning (13049): Converted tri-state buffer "signal_mux:signal_mux|MUX_OUT[9]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v Line: 46
+    Warning (13049): Converted tri-state buffer "signal_mux:signal_mux|MUX_OUT[10]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v Line: 46
+    Warning (13049): Converted tri-state buffer "signal_mux:signal_mux|MUX_OUT[11]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/signal_mux.v Line: 46
+    Warning (13049): Converted tri-state buffer "noise_generator:noise_generator|NOISE_OUT[6]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 59
+    Warning (13049): Converted tri-state buffer "noise_generator:noise_generator|NOISE_OUT[5]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 59
+    Warning (13049): Converted tri-state buffer "noise_generator:noise_generator|NOISE_OUT[4]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 59
+    Warning (13049): Converted tri-state buffer "noise_generator:noise_generator|NOISE_OUT[3]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 59
+    Warning (13049): Converted tri-state buffer "noise_generator:noise_generator|NOISE_OUT[2]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 59
+    Warning (13049): Converted tri-state buffer "noise_generator:noise_generator|NOISE_OUT[1]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 59
+    Warning (13049): Converted tri-state buffer "noise_generator:noise_generator|NOISE_OUT[0]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 59
+    Warning (13049): Converted tri-state buffer "noise_generator:noise_generator|NOISE_OUT[7]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 59
+    Warning (13049): Converted tri-state buffer "noise_generator:noise_generator|NOISE_OUT[8]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 59
+    Warning (13049): Converted tri-state buffer "noise_generator:noise_generator|NOISE_OUT[9]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 59
+    Warning (13049): Converted tri-state buffer "noise_generator:noise_generator|NOISE_OUT[10]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 59
+    Warning (13049): Converted tri-state buffer "noise_generator:noise_generator|NOISE_OUT[11]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 59
+    Warning (13049): Converted tri-state buffer "PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[0]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 72
+    Warning (13049): Converted tri-state buffer "PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[1]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 72
+    Warning (13049): Converted tri-state buffer "PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[2]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 72
+    Warning (13049): Converted tri-state buffer "PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[3]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 72
+    Warning (13049): Converted tri-state buffer "PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[4]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 72
+    Warning (13049): Converted tri-state buffer "PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[5]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 72
+    Warning (13049): Converted tri-state buffer "PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[6]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 72
+    Warning (13049): Converted tri-state buffer "PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[7]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 72
+    Warning (13049): Converted tri-state buffer "PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[8]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 72
+    Warning (13049): Converted tri-state buffer "PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[9]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 72
+    Warning (13049): Converted tri-state buffer "PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[10]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 72
+    Warning (13049): Converted tri-state buffer "PSK_phase_accum:PSK_phase_accum|ROM_ADDRESS[11]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 72
+    Warning (13049): Converted tri-state buffer "LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[0]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 65
+    Warning (13049): Converted tri-state buffer "LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[1]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 65
+    Warning (13049): Converted tri-state buffer "LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[2]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 65
+    Warning (13049): Converted tri-state buffer "LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[3]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 65
+    Warning (13049): Converted tri-state buffer "LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[4]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 65
+    Warning (13049): Converted tri-state buffer "LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[5]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 65
+    Warning (13049): Converted tri-state buffer "LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[6]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 65
+    Warning (13049): Converted tri-state buffer "LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[7]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 65
+    Warning (13049): Converted tri-state buffer "LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[8]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 65
+    Warning (13049): Converted tri-state buffer "LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[9]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 65
+    Warning (13049): Converted tri-state buffer "LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[10]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 65
+    Warning (13049): Converted tri-state buffer "LFM_phase_accum:LFM_phase_accum|ROM_ADDRESS[11]" feeding internal logic into a wire File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 65
+Info (278001): Inferred 7 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "LFM_phase_accum:LFM_phase_accum|Div0" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 129
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "LFM_phase_accum:LFM_phase_accum|Div2" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 132
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "PSK_phase_accum:PSK_phase_accum|Div2" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 137
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "LFM_phase_accum:LFM_phase_accum|Div1" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 132
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "PSK_phase_accum:PSK_phase_accum|Div0" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 104
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "PSK_phase_accum:PSK_phase_accum|Div1" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 113
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "noise_generator:noise_generator|Div0" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 116
+Info (12130): Elaborated megafunction instantiation "LFM_phase_accum:LFM_phase_accum|lpm_divide:Div0" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 129
+Info (12133): Instantiated megafunction "LFM_phase_accum:LFM_phase_accum|lpm_divide:Div0" with the following parameter: File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 129
+    Info (12134): Parameter "LPM_WIDTHN" = "59"
+    Info (12134): Parameter "LPM_WIDTHD" = "34"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_g6m.tdf
+    Info (12023): Found entity 1: lpm_divide_g6m File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/lpm_divide_g6m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_knh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_knh File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/sign_div_unsign_knh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_gse.tdf
+    Info (12023): Found entity 1: alt_u_div_gse File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/alt_u_div_gse.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "PSK_phase_accum:PSK_phase_accum|lpm_divide:Div2" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 137
+Info (12133): Instantiated megafunction "PSK_phase_accum:PSK_phase_accum|lpm_divide:Div2" with the following parameter: File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 137
+    Info (12134): Parameter "LPM_WIDTHN" = "34"
+    Info (12134): Parameter "LPM_WIDTHD" = "34"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_96m.tdf
+    Info (12023): Found entity 1: lpm_divide_96m File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/lpm_divide_96m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_dnh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_dnh File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/sign_div_unsign_dnh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_2se.tdf
+    Info (12023): Found entity 1: alt_u_div_2se File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/alt_u_div_2se.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "LFM_phase_accum:LFM_phase_accum|lpm_divide:Div1" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 132
+Info (12133): Instantiated megafunction "LFM_phase_accum:LFM_phase_accum|lpm_divide:Div1" with the following parameter: File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/LFM_phase_accum.v Line: 132
+    Info (12134): Parameter "LPM_WIDTHN" = "46"
+    Info (12134): Parameter "LPM_WIDTHD" = "23"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_a6m.tdf
+    Info (12023): Found entity 1: lpm_divide_a6m File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/lpm_divide_a6m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_enh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_enh File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/sign_div_unsign_enh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_4se.tdf
+    Info (12023): Found entity 1: alt_u_div_4se File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/alt_u_div_4se.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "PSK_phase_accum:PSK_phase_accum|lpm_divide:Div0" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 104
+Info (12133): Instantiated megafunction "PSK_phase_accum:PSK_phase_accum|lpm_divide:Div0" with the following parameter: File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 104
+    Info (12134): Parameter "LPM_WIDTHN" = "58"
+    Info (12134): Parameter "LPM_WIDTHD" = "34"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_f6m.tdf
+    Info (12023): Found entity 1: lpm_divide_f6m File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/lpm_divide_f6m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_jnh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_jnh File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/sign_div_unsign_jnh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ese.tdf
+    Info (12023): Found entity 1: alt_u_div_ese File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/alt_u_div_ese.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "PSK_phase_accum:PSK_phase_accum|lpm_divide:Div1" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 113
+Info (12133): Instantiated megafunction "PSK_phase_accum:PSK_phase_accum|lpm_divide:Div1" with the following parameter: File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/PSK_phase_accum.v Line: 113
+    Info (12134): Parameter "LPM_WIDTHN" = "34"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_36m.tdf
+    Info (12023): Found entity 1: lpm_divide_36m File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/lpm_divide_36m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_7nh File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/sign_div_unsign_7nh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_mre.tdf
+    Info (12023): Found entity 1: alt_u_div_mre File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/alt_u_div_mre.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "noise_generator:noise_generator|lpm_divide:Div0" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 116
+Info (12133): Instantiated megafunction "noise_generator:noise_generator|lpm_divide:Div0" with the following parameter: File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v Line: 116
+    Info (12134): Parameter "LPM_WIDTHN" = "37"
+    Info (12134): Parameter "LPM_WIDTHD" = "16"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_c6m.tdf
+    Info (12023): Found entity 1: lpm_divide_c6m File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/lpm_divide_c6m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_gnh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_gnh File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/sign_div_unsign_gnh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_8se.tdf
+    Info (12023): Found entity 1: alt_u_div_8se File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/db/alt_u_div_8se.tdf Line: 22
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 88 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/output_files/Test_002.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 13054 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 87 input pins
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 12922 logic cells
+    Info (21064): Implemented 12 RAM segments
+    Info (21062): Implemented 21 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 104 warnings
+    Info: Peak virtual memory: 965 megabytes
+    Info: Processing ended: Mon Nov 16 18:43:57 2020
+    Info: Elapsed time: 00:03:18
+    Info: Total CPU time (on all processors): 00:03:11
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/output_files/Test_002.map.smsg.
+
+

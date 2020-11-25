@@ -17,9 +17,9 @@ DAC_output_voltage = 3.3;
 
 %-user param---------------
 
-t_impulse    = 10e-6; % sec
-t_repetition = 400e-6;
-num_of_impulse = 1;
+t_impulse    = 60e-6; % sec
+t_repetition = 360e-6;
+num_of_impulse = 2;
 
 vobulation_array = zeros(1,num_of_impulse - 1);
 
@@ -54,7 +54,7 @@ end
 %-output signal generator------------------------------------------------------
 
 DAC_input_signal = collect_a_packet(num_of_impulse, sin_points, num_of_zero_points, DAC_bit_resolution);
-DAC_input_signal(end-200:end)
+% DAC_input_signal(end-200:end)
 output_signal = output_signal_conv(DAC_input_signal, DAC_bit_resolution, DAC_output_voltage);
 
 %------------------------------------------------------------------------------
@@ -85,17 +85,19 @@ grid on;
 % plotting spectrum
 figure(3);
 spectrum = abs(fft(output_signal));
-spectrum = spectrum/max(spectrum);
-frequ_points = (0:1:length(spectrum) - 1) * f_sampling/length(spectrum);
+spectrum = (spectrum/max(spectrum));
+frequ_points = (0:1:length(spectrum) - 1) * f_sampling/length(spectrum)/10^9;
 
 plot(frequ_points, spectrum); 
-xlim([0, f_sampling/2])
+xlim([0, f_sampling/10^9/2])
 ylim([0, max(spectrum)*1.2]);
 title('Spectrum');
-xlabel('Frequency, Hz');
+xlabel('Frequency, GHz');
 grid on;
 
-% plotting spectrum borders
+% % plotting spectrum borders
+% f_min = f_carrier - (1023/t_impulse)/2;
+% f_max = f_carrier + (1023/t_impulse)/2;
 % hold on;
 % plot([f_min f_min],[0 1]);
 % 

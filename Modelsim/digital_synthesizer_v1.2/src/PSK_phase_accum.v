@@ -1,0 +1,204 @@
+
+module PSK_phase_accum(
+
+    input wire        CLK,
+    input wire        RESET,
+
+    input wire [ 1:0] SIGNAL_TYPE,
+    input wire [31:0] F_CARRIER,
+    input wire [ 9:0] T_IMPULSE,
+    input wire [12:0] T_PERIOD,
+    input wire [ 4:0] NUM_OF_IMP,
+    input wire        SIGN_START_GEN,
+    input wire        OUT_REG_READY,
+
+    output reg [11:0] ROM_ADDRESS,
+    output reg        SIGN_START_CALC, // inform output reg which calculation of phase started
+    output reg        SIGN_STOP_CALC); // inform output reg which calculation of phase stopped
+
+//--user parameters------------------------------------------------------------
+
+    parameter _SAMPLING_FREQ   = 34'd 13_000000000; // 13 GHz
+    parameter _ARRAY_DIMENTION = 13'd 4096; 
+    parameter _STEP_MULT_COEF  = 15'd 16384; 
+    parameter _DISC_MULT_COEF  = 11'd 1024; 
+    parameter _CODE_LEN        = 10'd 1023;
+
+    parameter _PSK_SIGNAL_TYPE =  2'd 2;
+
+//--user variables-------------------------------------------------------------
+
+    reg [11:0] address   = 0;
+    reg        busy      = 0; // flag which indicates that LFM_phase_accum 
+                              // received SIGN_START_GEN and output register 
+                              // is ready for work (LFM_phase_accum starts 
+                              // calculate phase of signal from ROM)
+
+    reg [31:0] f_carrier      = 0; // from 1.2 to 4GHz  (4.2GHz)
+    reg [ 9:0] t_impulse      = 0; // from 60 to 650us  (1023us)
+    reg [12:0] t_period       = 0; // from 360 to 6500us(8191us)
+    reg [ 4:0] num_of_imp     = 0; // from 0 to 31
+
+    reg [31:0] num_of_samples  = 0; // from 0 to 2627950000 - 1
+    reg [31:0] samples_counter = 0; // from 0 to 2627950000 - 1
+
+    reg [23:0] imp_samples     = 0; // from 0 to 16777215
+    reg [26:0] period_samples  = 0; // from 0 to 134217727
+
+    reg [23:0] imp_samples_counter  = 0; // counter of samples inside each inpulse
+
+    reg [ 4:0] num_of_curr_imp = 1; // from 0 to 31
+
+    reg [57:0] step            = 0;
+    reg [25:0] accum           = 0;
+
+    reg [ 0:9] regg             = 10'b0000001001; // first state of register of M-sequince generator
+    reg [ 9:0] current_disc_num = 1; // number of discrete of M-sequince
+    reg        save_bit         = 0;
+    reg        curr_discrete    = 0;
+    reg        next_discrete    = 0;
+    reg [33:0] samples_per_disc = 0;
+
+    reg [33:0] next_sample_disc_num = 0;
+
+//-----------------------------------------------------------------------------
+    initial begin
+        ROM_ADDRESS     = 12'bz;
+        SIGN_START_CALC = 0;
+        SIGN_STOP_CALC  = 0;
+    end
+//-----------------------------------------------------------------------------
+
+    always @(posedge CLK) begin
+        if (RESET) begin
+            ROM_ADDRESS     <= 12'b z; // set z-state in out of phase accum
+            SIGN_STOP_CALC  <= 0; // clear flag for output register 
+            samples_counter <= 0; // reset the counter
+            imp_samples     <= 0;
+            period_samples  <= 0;
+            num_of_curr_imp <= 1;
+            busy            <= 0; // clear flag busy of phase accum 
+            address         <= 0;
+            step            <= 0;
+            accum           <= 0;
+
+            imp_samples_counter <= 0;
+
+            current_disc_num <= 1;
+            samples_per_disc <= 0;
+            curr_discrete    <= 0;
+            regg             <= 10'b0000001001;
+            
+        end else if (SIGN_START_GEN && !busy && OUT_REG_READY && (SIGNAL_TYPE == _PSK_SIGNAL_TYPE)) begin
+
+            f_carrier      = F_CARRIER;  // save parameters
+            t_impulse      = T_IMPULSE;  // save parameters
+            t_period       = T_PERIOD;   // save parameters
+            num_of_imp     = NUM_OF_IMP; // save parameters
+
+            imp_samples    = t_impulse * (_SAMPLING_FREQ/1000000); // calculate num of samples per inpulse 
+            period_samples = t_period  * (_SAMPLING_FREQ/1000000); // calculate num of samples per period  
+            
+            num_of_samples = (((num_of_imp - 1) * t_period) + t_impulse) * (_SAMPLING_FREQ/1000000);
+
+            step = (_STEP_MULT_COEF * _ARRAY_DIMENTION * f_carrier)/_SAMPLING_FREQ;
+
+//------------------calculation of first discrete of M-sequince----------------
+            save_bit  = (regg[6] ^ regg[9]);
+            regg[1:9] = regg[0:8];
+            regg[0]   = save_bit;
+//-----------------------------------------------------------------------------
+            curr_discrete = regg[9];
+
+            samples_per_disc = (imp_samples * _DISC_MULT_COEF)/_CODE_LEN; // used _DISC_MULT_COEF for fictitious adding a fractional part
+
+            SIGN_START_CALC <= 1; // set flag for output register 
+            busy            <= 1; // set flag for next step 
+
+        end else if (busy) begin
+
+            if (SIGN_START_CALC) begin
+                SIGN_START_CALC <= 0;
+            end
+
+            if (samples_counter < num_of_samples) begin
+
+                ROM_ADDRESS     = address;
+                samples_counter = samples_counter + 1; // calculate number of the next sample
+
+                if (samples_counter == (num_of_samples)) begin // if the current sample is the last one in the package
+                    SIGN_STOP_CALC = 1; // set flag for output register 
+                end else begin // if the current sample is not the last one in the package calculate new ROM address
+
+                    if (samples_counter < (imp_samples + (num_of_curr_imp - 1) * period_samples)) begin // if the current sample is not the last one in the impulse 
+                                                                                                        // generate impulse samples
+                        imp_samples_counter = imp_samples_counter + 1; // calculate number of impulse sample for the next step
+
+                        next_sample_disc_num = (imp_samples_counter * _DISC_MULT_COEF)/samples_per_disc; // calculating a number of discrete for next impulse sample
+
+                        if (next_sample_disc_num >= current_disc_num) begin // if the discrete's number for next sample is >= then current discrete's number 
+
+                        //------------------calculation of next discrete of M-sequince----------------
+                            save_bit  = (regg[6] ^ regg[9]);
+                            regg[1:9] = regg[0:8];
+                            regg[0]   = save_bit;
+                        //-----------------------------------------------------------------------------
+                            next_discrete = regg[9];
+
+                            if (next_discrete != curr_discrete) begin
+                                accum = accum + (_ARRAY_DIMENTION * _STEP_MULT_COEF / 2); // shift phase to pi
+                            end
+
+                            curr_discrete = next_discrete;
+                            current_disc_num  = current_disc_num + 1;
+                        end
+                            
+                        accum   = accum + step[25:0];
+                        address = accum/_STEP_MULT_COEF;
+
+                    end else begin // generate zero samples between impulses 
+                        address = 0;
+                        if (samples_counter == (num_of_curr_imp * period_samples)) begin
+
+                            accum = 0;
+                            num_of_curr_imp = num_of_curr_imp + 1;
+                            imp_samples_counter = 0;
+
+                            regg = 10'b0000001001;
+                        //------------------calculation of first discrete of M-sequince----------------
+                            save_bit  = (regg[6] ^ regg[9]);
+                            regg[1:9] = regg[0:8];
+                            regg[0]   = save_bit;
+                        //-----------------------------------------------------------------------------
+                            curr_discrete = regg[9];
+
+                            current_disc_num = 1;
+
+                        end
+                    end 
+                end
+
+            end else if (samples_counter == num_of_samples) begin // if this sample is the next one after the last one in the package
+                ROM_ADDRESS     <= 12'b z; // set z-state in out of phase accum
+                SIGN_STOP_CALC  <= 0; // clear flag for output register 
+                samples_counter <= 0; // reset the counter
+                imp_samples     <= 0;
+                period_samples  <= 0;
+                num_of_curr_imp <= 1;
+                busy            <= 0; // clear flag busy of phase accum 
+                address         <= 0;
+                step            <= 0;
+                accum           <= 0;
+
+                imp_samples_counter <= 0;
+
+                current_disc_num <= 1;
+                samples_per_disc <= 0;
+                curr_discrete    <= 0;
+                regg             <= 10'b0000001001;
+
+            end    
+        end
+    end
+
+endmodule

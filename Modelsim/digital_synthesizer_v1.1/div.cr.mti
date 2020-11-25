@@ -1,0 +1,15 @@
+D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/div_tester/div_tb.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/div_tester/div_tb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module div_tb
+
+Top level modules:
+	div_tb
+
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/div_tester/transm.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/div_tester/transm.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module transm
+
+Top level modules:
+	transm
+
+} {} {}}

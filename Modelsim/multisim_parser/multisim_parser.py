@@ -10,7 +10,7 @@ import numpy as np
 f_sampling = 13e9  ## Hz  
 f_carrier  = 1.3e9 + 0 ## Hz
 t_impulse  = 10e-6  ## 
-t_period   = 2e-6  ## 
+t_period   = 15e-6  ## 
 num_of_imp = 1  ## 
 deviation  = 3e6
 
@@ -42,7 +42,7 @@ print('Oкругленное количество отсчетов в сигна
 
 ##-----------------------------------------------------------------------------
 
-path = 'D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/NOISE/data/output_signal.txt'
+path = 'D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/data/output_signal.txt'
 
 with open(path) as file:
     data = file.read().split()
@@ -64,37 +64,39 @@ signal = np.array(signal[0:num_of_samples])
 m_tr     = int(2**DAC_bit_resolution/2 - 1) ## требуемое значение матожидания выходного процесса
 sigma_tr = int(m_tr/3) ## требуемое значение СКО выходного процесса
 
-x = np.linspace(0, 4095, 4096)
-w = 1/(np.sqrt(2*np.pi) * sigma_tr) * np.exp(-(x - m_tr)**2/(2*sigma_tr**2))
-plt.hist(signal, bins = 100, density = True)
-plt.plot(x, w)
-plt.show()
+# x = np.linspace(0, 4095, 4096)
+# w = 1/(np.sqrt(2*np.pi) * sigma_tr) * np.exp(-(x - m_tr)**2/(2*sigma_tr**2))
+# plt.hist(signal, bins = 100, density = True)
+# plt.plot(x, w)
+# plt.show()
 
-# fig, (ax1, ax2) = plt.subplots(nrows = 2, ncols = 1)
+fig, (ax1, ax2) = plt.subplots(nrows = 2, ncols = 1)
 
-# time = np.linspace(0, 1, num_of_samples) * time_of_simulation
-# ax1.plot(time, signal[0:num_of_samples])
-# ax1.grid()
-
+time = np.linspace(0, 1, num_of_samples) * time_of_simulation
+ax1.plot(time, signal[0:num_of_samples])
+ax1.grid()
 
 signal = signal/(2**DAC_bit_resolution - 1) - 0.5
 
-# spectrum = abs(np.fft.fft(signal, n = 1*len(signal), axis = -1))
-# spectrum/= spectrum.max()
-# frequ_points = np.linspace(0, 1, len(spectrum)) * f_sampling
+spectrum = abs(np.fft.fft(signal, n = 1*len(signal), axis = -1))
+spectrum/= spectrum.max()
+frequ_points = np.linspace(0, 1, len(spectrum)) * f_sampling
 
-# ax2.plot(frequ_points, spectrum)
-# ax2.set_xlim(0, f_sampling/2)
-# ax2.grid()
+ax2.plot(frequ_points, spectrum)
+ax2.set_xlim(0, f_sampling/2)
+ax2.grid()
 
-# simulated_freq = np.argmax(spectrum) * f_sampling/(len(spectrum)-1)
-# print('Частота смоделированного сигнала =\t', simulated_freq)
+simulated_freq = np.argmax(spectrum) * f_sampling/(len(spectrum)-1)
+print('Частота смоделированного сигнала =\t', simulated_freq)
 
-acf = abs(np.correlate(signal, signal, 'full'))
-acf /= acf.max()
-# acf = 10 * np.log10(acf)
-plt.plot(acf)
-plt.grid()
+# acf = abs(np.correlate(signal, signal, 'full'))
+# acf /= acf.max()
+# # acf = 10 * np.log10(acf)
+# plt.plot(acf)
+# plt.grid()
 plt.show()
 
 
+# print(4096*3000000/(13000000000*10/2*13000))
+# print(2*3000000/(25390625*10*1625))
+# print(4096/13000000000 * (1301500000 - 3000000/(10*)))

@@ -1,0 +1,11 @@
+Warning (10273): Verilog HDL warning at signal_mux.v(29): extended using "x" or "z" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/signal_mux.v Line: 29
+Warning (10273): Verilog HDL warning at signal_mux.v(42): extended using "x" or "z" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/signal_mux.v Line: 42
+Warning (10273): Verilog HDL warning at signal_mux.v(72): extended using "x" or "z" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/signal_mux.v Line: 72
+Warning (10268): Verilog HDL information at signal_mux.v(34): always construct contains both blocking and non-blocking assignments File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/signal_mux.v Line: 34
+Warning (10273): Verilog HDL warning at output_reg.v(46): extended using "x" or "z" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/output_reg.v Line: 46
+Warning (10273): Verilog HDL warning at output_reg.v(85): extended using "x" or "z" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/output_reg.v Line: 85
+Warning (10273): Verilog HDL warning at output_reg.v(104): extended using "x" or "z" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/output_reg.v Line: 104
+Warning (10273): Verilog HDL warning at LFM_phase_accum.v(88): extended using "x" or "z" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_phase_accum.v Line: 88
+Warning (10273): Verilog HDL warning at LFM_phase_accum.v(97): extended using "x" or "z" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_phase_accum.v Line: 97
+Warning (10273): Verilog HDL warning at LFM_phase_accum.v(230): extended using "x" or "z" File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_phase_accum.v Line: 230
+Warning (10268): Verilog HDL information at LFM_phase_accum.v(94): always construct contains both blocking and non-blocking assignments File: D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_phase_accum.v Line: 94

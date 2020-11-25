@@ -52,7 +52,7 @@ def collect_a_packet(num_of_impulse, sin_points, zero_points):
 f_carrier  = 1.3e9        # Hz
 f_sampling = 13e9   	  # Hz
 t_disc     = 1/f_sampling # sec
-accum_bit_depth  = 16
+accum_bit_depth  = 12
 array_dimention  = 2**accum_bit_depth
 
 ##-user param-------------

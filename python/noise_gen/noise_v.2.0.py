@@ -5,12 +5,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 ##-----------------------------------------------------------------------------
 
+f_sampling = 13e9
+t_impulse  = 25e-6
+
+num_of_samples = int(f_sampling * t_impulse)
 
 N = 12 ## количество суммирований
-n = 16 ## разрядность генерируемой случайной величины
+n = 12*1 ## разрядность генерируемой случайной величины
 DAC_bit_res = 12 ## разрядность выходной случайной величины
 
-m_tr     = int(2**DAC_bit_res/2 - 1) ## требуемое значение матожидания выходного процесса
+m_tr     = int(2**DAC_bit_res/2) ## требуемое значение матожидания выходного процесса
 print(m_tr)
 sigma_tr = int(m_tr/3) ## требуемое значение СКО выходного процесса
 print(sigma_tr)
@@ -38,7 +42,7 @@ z_curr = int(2**(m - 2) - 1) ## начальное значение для ко�
 print(z_curr)
 result = [4095]
 
-for i in range(130000-1): 
+for i in range(num_of_samples-1): 
     
 ## непонятно почему, но это тоже работает :)
 
@@ -75,7 +79,7 @@ for i in range(130000-1):
         z.append(((z_next >> (bit_deph - m)) & (2**m - 1)))
         z_curr = z_next
 
-    rnd = (sum(z) & (2**37 - 1))
+    rnd = (sum(z) & (2**48 - 1))
 
     z = []
 
@@ -86,24 +90,54 @@ for i in range(130000-1):
 
     result.append(rnd)
 
-# fig, (ax1, ax2) = plt.subplots(nrows = 2, ncols = 1)
-# x = np.linspace(0, 4095, 4096)
-# w = 1/(np.sqrt(2*np.pi) * sigma_tr) * np.exp(-(x - m_tr)**2/(2*sigma_tr**2))
-# ax1.hist(result, bins = 100, density = True)
-# ax1.grid()
-# ax1.plot(x, w)
+# result = np.longlong(np.random.normal(m_tr, sigma_tr, num_of_samples)) & (2**DAC_bit_res - 1)
+
+fig1, (ax1, ax2) = plt.subplots(nrows = 2, ncols = 1)
+
+time = np.linspace(0, 1, num_of_samples) * t_impulse
+ax1.grid()
+ax1.set_xlabel('Время, с')
+ax1.set_ylabel('Разряды ЦАПа')
+ax1.plot(time, result)
+
+
+x = np.linspace(0, 4095, 4096)
+w = 1/(np.sqrt(2*np.pi) * sigma_tr) * np.exp(-(x - m_tr)**2/(2*sigma_tr**2))
+ax2.hist(result, bins = 50, density = True)
+ax2.grid()
+ax2.set_xlabel('Значения случайной величины')
+ax2.set_ylabel('СПМ')
+ax2.plot(x, w)
+
+
+plt.show()
+
+fig1, (ax1, ax2) = plt.subplots(nrows = 2, ncols = 1)
+
 
 result = np.array(result)
 
 result = result/(2**DAC_bit_res - 1) - 0.5
 
-print(result[10000:10010])
-
+# # print(result[10000:10010])
+time = np.linspace(-1, 1, int(2*num_of_samples - 1)) * t_impulse
 acf = abs(np.correlate(result, result, 'full'))
 acf /= acf.max()
 acf = 10 * np.log10(acf)
-plt.plot(acf)
 
-plt.grid()
+ax1.plot(time, acf)
+ax1.grid()
+ax1.set_xlabel('Время, с')
+ax1.set_ylabel('Нормированная КФ, дб')
 
+
+spectrum = abs(np.fft.fft(result, n = 2*len(result),  axis = -1))
+freq_points = np.linspace(0, 1, len(spectrum)) * f_sampling
+spectrum /= max(spectrum)
+
+ax2.plot(freq_points, spectrum)
+ax2.set_xlim(0, f_sampling/2)
+ax2.set_xlabel('Частота, Гц')
+ax2.set_ylabel('Нормированный спектр')
+ax2.grid()
 plt.show()

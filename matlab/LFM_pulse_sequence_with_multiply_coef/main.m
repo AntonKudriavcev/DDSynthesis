@@ -6,7 +6,7 @@ clear all;
 %-user variable----------------------------------------------------------------
 
 f_carrier   = 1.3e9; % Hz
-f_sampling  = 26e9;  % Hz
+f_sampling  = 13e9;  % Hz
 
 bit_depth = 12;
 mult_coef = 16384;
@@ -19,13 +19,13 @@ DAC_output_voltage = 3.3;
 
 f_deviation  = 3e6*1;    % Hz
 t_impulse    = 60e-6; % sec
-t_repetition = 400e-6;
-num_of_impulse = 5;
+t_repetition = 360e-6;
+num_of_impulse = 2;
 
 vobulation_array = zeros(1,num_of_impulse - 1);
 
 for i = 1:1:(num_of_impulse - 1)
-    vobulation_array(i) = t_repetition + (t_repetition * rand());
+    vobulation_array(i) = t_repetition + (t_repetition * rand()*0);
 end
 
 vobulation_array
@@ -108,7 +108,7 @@ plot([f_max f_max],[0 1]);
 
 % plotting ACF
 figure(4);
-acf = (xcorr(output_signal));
+acf = abs((xcorr(output_signal)));
 acf = acf/max(acf);
 tau = -time_of_simulation:2*time_of_simulation/(length(acf) - 1):time_of_simulation;
 plot(tau, acf);

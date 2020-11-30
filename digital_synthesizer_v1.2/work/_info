@@ -1,0 +1,351 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_pro/18.1
+vbuffer
+!s110 1606734832
+!i10b 1
+!s100 <f5Cn@jjoMWG0zEWL7W:S1
+I0b6n2Wl8Cjecg9nOj_Q?33
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+Z1 dD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2
+w1604840982
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/buffer.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/buffer.v
+L0 2
+Z2 OV;L;10.6d;65
+r1
+!s85 0
+31
+!s108 1606734832.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/buffer.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/buffer.v|
+!i113 1
+Z3 o-work work
+Z4 tCvgOpt 0
+vdigital_synthesizer_tb
+!s110 1606744474
+!i10b 1
+!s100 B6_d4NlHFn_o2NKNLE2j?2
+I]T`OF2Y>KnG:H>NJ>BjOF0
+R0
+R1
+w1606744464
+8D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\digital_synthesizer_v1.2\tb\digital_synthesizer_tb.v
+FD:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\digital_synthesizer_v1.2\tb\digital_synthesizer_tb.v
+L0 5
+R2
+r1
+!s85 0
+31
+!s108 1606744474.000000
+!s107 D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\digital_synthesizer_v1.2\tb\digital_synthesizer_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\digital_synthesizer_v1.2\tb\digital_synthesizer_tb.v|
+!i113 1
+R3
+R4
+vdigital_synthesizer_v1
+Z5 !s110 1606743844
+!i10b 1
+!s100 2^mWG54T^T8[44K>cV5;O1
+I7<jbQ6Ya8UGKX9@C8bPZU2
+R0
+R1
+w1606743770
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/digital_synthesizer_v1.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/digital_synthesizer_v1.v
+L0 2
+R2
+r1
+!s85 0
+31
+Z6 !s108 1606743844.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/digital_synthesizer_v1.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/digital_synthesizer_v1.v|
+!i113 1
+R3
+R4
+vdiv
+!s110 1605826421
+!i10b 1
+!s100 Dg0J[VLT5d4TdTCc`HgE33
+IdM[IQU@iZ@fXWSLc_4oS21
+R0
+R1
+w1605826333
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div.v
+Z7 L0 39
+R2
+r1
+!s85 0
+31
+!s108 1605826420.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div.v|
+!i113 1
+R3
+R4
+vdiv1
+!s110 1606679516
+!i10b 1
+!s100 FoM2IOh>KD3D[4D<NRXNN2
+IESEULk2S<g<n=AS@hMWUH3
+R0
+R1
+w1605829438
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div1.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div1.v
+R7
+R2
+r1
+!s85 0
+31
+!s108 1606679516.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div1.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div1.v|
+!i113 1
+R3
+R4
+vdiv2
+!s110 1606679517
+!i10b 1
+!s100 Q5BzW?^zmGLN@02BiC?JH1
+Ij4ZDff`^j5mN_ZnS496Of0
+R0
+R1
+w1606215931
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div2.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div2.v
+R7
+R2
+r1
+!s85 0
+31
+!s108 1606679517.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div2.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div2.v|
+!i113 1
+R3
+R4
+vfifo
+!s110 1606743747
+!i10b 1
+!s100 kPiSRF9eZR?H7=M2F:[8m3
+IZ;RAo`>Z2elNbhcWK1Id52
+R0
+R1
+w1606743290
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/fifo.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/fifo.v
+R7
+R2
+r1
+!s85 0
+31
+!s108 1606743747.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/fifo.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/fifo.v|
+!i113 1
+R3
+R4
+vLFM_buffer
+!s110 1606258505
+!i10b 1
+!s100 Czd0MTkX`9]:@0KLnADnn2
+IZ^5?>c6dcS69^gQY^;lm91
+R0
+R1
+w1606246324
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_buffer.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_buffer.v
+L0 2
+R2
+r1
+!s85 0
+31
+!s108 1606258505.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_buffer.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_buffer.v|
+!i113 1
+R3
+R4
+n@l@f@m_buffer
+vLFM_phase_accum
+Z8 !s110 1606744150
+!i10b 1
+!s100 ?efZ:8WkHjFfgn0G5QbD30
+Ie@gfn0VWFD>9MFhMk6A2W0
+R0
+R1
+w1606744051
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_phase_accum.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_phase_accum.v
+L0 2
+R2
+r1
+!s85 0
+31
+Z9 !s108 1606744150.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_phase_accum.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_phase_accum.v|
+!i113 1
+R3
+R4
+n@l@f@m_phase_accum
+vLFM_tb
+!s110 1604842248
+!i10b 1
+!s100 3S`KgzNHDa:o[PU5TYo9B1
+I^6^=]5WNNj]=>OiZ9Nc7H0
+R0
+dD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0
+w1604842244
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/tb/digital_synthesizer_tb.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/tb/digital_synthesizer_tb.v
+L0 5
+R2
+r1
+!s85 0
+31
+!s108 1604842247.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/tb/digital_synthesizer_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/tb/digital_synthesizer_tb.v|
+!i113 1
+R3
+R4
+n@l@f@m_tb
+vnoise_generator
+!s110 1606743746
+!i10b 1
+!s100 kjSQ?LZAR@nXf4JLI3SfY2
+IDnF5WA;b;YoL^Ag49JE920
+R0
+R1
+w1606742760
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/noise_generator.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/noise_generator.v
+L0 2
+R2
+r1
+!s85 0
+31
+!s108 1606743746.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/noise_generator.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/noise_generator.v|
+!i113 1
+R3
+R4
+vnoise_sum
+R5
+!i10b 1
+!s100 N2OR2;W?h2?TfFnQ][Z2V0
+ID]3PbO]_:YbLo?91kN@1]2
+R0
+R1
+w1606743838
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/noise_sum.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/noise_sum.v
+L0 1
+R2
+r1
+!s85 0
+31
+R6
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/noise_sum.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/noise_sum.v|
+!i113 1
+R3
+R4
+voutput_reg
+R8
+!i10b 1
+!s100 ^zVPHG22ag;VS?<XS^1RO0
+ILQ_WoPCfeP5SOInRfOib81
+R0
+R1
+w1606743963
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/output_reg.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/output_reg.v
+L0 2
+R2
+r1
+!s85 0
+31
+R9
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/output_reg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/output_reg.v|
+!i113 1
+R3
+R4
+vPSK_phase_accum
+Z10 !s110 1606744151
+!i10b 1
+!s100 fhR@ee^Ol0jRn2^z2W3D[1
+IbkQ;jOz80UgjVjlAZ`CY^0
+R0
+R1
+w1606744088
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/PSK_phase_accum.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/PSK_phase_accum.v
+L0 2
+R2
+r1
+!s85 0
+31
+Z11 !s108 1606744151.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/PSK_phase_accum.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/PSK_phase_accum.v|
+!i113 1
+R3
+R4
+n@p@s@k_phase_accum
+vROM
+!s110 1606679515
+!i10b 1
+!s100 <1AElaG[zDLEhgSkziOT]0
+I<FO8La?6PF=^e[b4]MjW?3
+R0
+R1
+w1602280672
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v
+R7
+R2
+r1
+!s85 0
+31
+!s108 1606679515.000000
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v|
+!i113 1
+R3
+R4
+n@r@o@m
+vsignal_mux
+R10
+!i10b 1
+!s100 b]F8TkdEFA0FMW@kbAA@e2
+IUh>MgZ5RS8YOj6LSE;Fg:2
+R0
+R1
+w1606744139
+8D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/signal_mux.v
+FD:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/signal_mux.v
+L0 2
+R2
+r1
+!s85 0
+31
+R11
+!s107 D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/signal_mux.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/signal_mux.v|
+!i113 1
+R3
+R4

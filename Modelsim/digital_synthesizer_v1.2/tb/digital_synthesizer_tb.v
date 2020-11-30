@@ -49,12 +49,12 @@ module digital_synthesizer_tb;
 
         f_carrier  = (13_00000000 + 0); // Hz
         t_impulse  = 10; // us
-        t_period   = 15;  // us 
+        t_period   = 25;  // us 
         num_of_imp = 1;  // 
         deviation  = 3e6; // Hz
 
         sign_start_gen = 1;
-        signal_type    = _LFM_SIGNAL_TYPE; // 
+        signal_type    = _NOISE_SIGNAL_TYPE; // 
 
         file_data = $fopen("D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/data/output_signal.txt", "w");
         $fclose(file_data) ;

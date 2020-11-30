@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Wed Nov 25 02:27:10 2020
+Analysis & Synthesis Status : Successful - Mon Nov 30 21:51:04 2020
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : digital_synthesizer_v1_2
 Top-level Entity Name : digital_synthesizer_v1
 Family : Arria V
 Logic utilization (in ALMs) : N/A
-Total registers : 2573
+Total registers : 4068
 Total pins : 99
 Total virtual pins : 0
-Total block memory bits : 49,830
-Total DSP Blocks : 9
+Total block memory bits : 50,738
+Total DSP Blocks : 16
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0

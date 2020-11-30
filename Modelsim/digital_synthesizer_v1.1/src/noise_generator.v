@@ -88,32 +88,61 @@ module noise_generator(
 
                     rnd = 0;
 
-                    z   = (_L * z + _U);
+                    // z   = (_L * z + _U);
+                    // rnd = rnd + z[35:20];
+                    // z   = (_L * z + _U);
+                    // rnd = rnd + z[35:20];
+                    // z   = (_L * z + _U);
+                    // rnd = rnd + z[35:20];
+                    // z   = (_L * z + _U);
+                    // rnd = rnd + z[35:20];
+                    // z   = (_L * z + _U);
+                    // rnd = rnd + z[35:20];
+                    // z   = (_L * z + _U);
+                    // rnd = rnd + z[35:20];
+                    // z   = (_L * z + _U);
+                    // rnd = rnd + z[35:20];
+                    // z   = (_L * z + _U);
+                    // rnd = rnd + z[35:20];
+                    // z   = (_L * z + _U);
+                    // rnd = rnd + z[35:20];
+                    // z   = (_L * z + _U);
+                    // rnd = rnd + z[35:20];
+                    // z   = (_L * z + _U);
+                    // rnd = rnd + z[35:20];
+                    // z   = (_L * z + _U);
+                    // rnd = rnd + z[35:20];
+
+                    // rnd = ((rnd * _SIGMA_REQ)/_SIGMA_COMPENS - _M_CALC);
+
+                    
+
+                    z   = ((z << 5) - z + _U);
                     rnd = rnd + z[35:20];
-                    z   = (_L * z + _U);
+                    z   = ((z << 5) - z + _U);
                     rnd = rnd + z[35:20];
-                    z   = (_L * z + _U);
+                    z   = ((z << 5) - z + _U);
                     rnd = rnd + z[35:20];
-                    z   = (_L * z + _U);
+                    z   = ((z << 5) - z + _U);
                     rnd = rnd + z[35:20];
-                    z   = (_L * z + _U);
+                    z   = ((z << 5) - z + _U);
                     rnd = rnd + z[35:20];
-                    z   = (_L * z + _U);
+                    z   = ((z << 5) - z + _U);
                     rnd = rnd + z[35:20];
-                    z   = (_L * z + _U);
+                    z   = ((z << 5) - z + _U);
                     rnd = rnd + z[35:20];
-                    z   = (_L * z + _U);
+                    z   = ((z << 5) - z + _U);
                     rnd = rnd + z[35:20];
-                    z   = (_L * z + _U);
+                    z   = ((z << 5) - z + _U);
                     rnd = rnd + z[35:20];
-                    z   = (_L * z + _U);
+                    z   = ((z << 5) - z + _U);
                     rnd = rnd + z[35:20];
-                    z   = (_L * z + _U);
+                    z   = ((z << 5) - z + _U);
                     rnd = rnd + z[35:20];
-                    z   = (_L * z + _U);
+                    z   = ((z << 5) - z + _U);
                     rnd = rnd + z[35:20];
 
-                    rnd = ((rnd * _SIGMA_REQ)/_SIGMA_COMPENS - _M_CALC);
+                    rnd = (((rnd * _SIGMA_REQ) >> 16) - _M_CALC);
 
                 end
 

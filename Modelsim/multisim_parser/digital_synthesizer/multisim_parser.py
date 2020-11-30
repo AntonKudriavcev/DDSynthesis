@@ -61,21 +61,21 @@ for i in range(len(data)):
 
 signal = np.array(signal[0:num_of_samples])
 
-# m_tr     = int(2**DAC_bit_resolution/2 - 1) ## требуемое значение матожидания выходного процесса
-# sigma_tr = int(m_tr/3) ## требуемое значение СКО выходного процесса
+m_tr     = int(2**DAC_bit_resolution/2 - 1) ## требуемое значение матожидания выходного процесса
+sigma_tr = int(m_tr/3) ## требуемое значение СКО выходного процесса
 
-# x = np.linspace(0, 4095, 4096)
-# w = 1/(np.sqrt(2*np.pi) * sigma_tr) * np.exp(-(x - m_tr)**2/(2*sigma_tr**2))
-# plt.hist(signal, bins = 100, density = True)
-# plt.grid()
-# plt.plot(x, w)
-# plt.show()
+x = np.linspace(0, 4095, 4096)
+w = 1/(np.sqrt(2*np.pi) * sigma_tr) * np.exp(-(x - m_tr)**2/(2*sigma_tr**2))
+plt.hist(signal, bins = 100, density = True)
+plt.grid()
+plt.plot(x, w)
+plt.show()
 
-# fig, (ax1, ax2) = plt.subplots(nrows = 2, ncols = 1)
+fig, (ax1, ax2) = plt.subplots(nrows = 2, ncols = 1)
 
-# time = np.linspace(0, 1, num_of_samples) * time_of_simulation
-# ax1.plot(time, signal[0:num_of_samples])
-# ax1.grid()
+time = np.linspace(0, 1, num_of_samples) * time_of_simulation
+ax1.plot(time, signal[0:num_of_samples])
+ax1.grid()
 
 
 

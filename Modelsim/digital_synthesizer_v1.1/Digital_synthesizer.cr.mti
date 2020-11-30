@@ -1,4 +1,4 @@
-D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v
+D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/src/noise_generator.v {1 {vlog -work work -stats=none {D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\digital_synthesizer_v1.1\src\noise_generator.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
 -- Compiling module noise_generator
 
@@ -89,7 +89,7 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 2
 Top level modules:
 	digital_synthesizer_tb
 
-} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/tb/digital_synthesizer_tb.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/tb/digital_synthesizer_tb.v
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.1/tb/digital_synthesizer_tb.v {1 {vlog -work work -stats=none {D:\study\6_year\diploma\Diploma\code\DDSynthesis\Modelsim\digital_synthesizer_v1.1\tb\digital_synthesizer_tb.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
 -- Compiling module digital_synthesizer_tb
 

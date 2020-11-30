@@ -52,12 +52,17 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_C6 -to CLK
-set_global_assignment -name SDC_FILE test.sdc
-set_global_assignment -name VERILOG_FILE ../../Modelsim/digital_synthesizer_v1.2/src/signal_mux.v
-set_global_assignment -name VERILOG_FILE ../../Modelsim/digital_synthesizer_v1.2/src/output_reg.v
-set_global_assignment -name VERILOG_FILE ../../Modelsim/digital_synthesizer_v1.2/src/LFM_phase_accum.v
-set_global_assignment -name VERILOG_FILE ../../Modelsim/digital_synthesizer_v1.2/src/digital_synthesizer_v1.v
-set_global_assignment -name QIP_FILE ROM.qip
-set_global_assignment -name QIP_FILE div1.qip
-set_global_assignment -name QIP_FILE div2.qip
+set_global_assignment -name SDC_FILE sdc/test.sdc
+set_global_assignment -name VERILOG_FILE src/noise_sum.v
+set_global_assignment -name VERILOG_FILE src/signal_mux.v
+set_global_assignment -name VERILOG_FILE src/PSK_phase_accum.v
+set_global_assignment -name VERILOG_FILE src/output_reg.v
+set_global_assignment -name VERILOG_FILE src/noise_generator.v
+set_global_assignment -name VERILOG_FILE src/LFM_phase_accum.v
+set_global_assignment -name VERILOG_FILE src/digital_synthesizer_v1.v
+set_global_assignment -name VERILOG_FILE src/buffer.v
+set_global_assignment -name QIP_FILE ip_cores/ROM.qip
+set_global_assignment -name QIP_FILE ip_cores/fifo.qip
+set_global_assignment -name QIP_FILE ip_cores/div2.qip
+set_global_assignment -name QIP_FILE ip_cores/div1.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

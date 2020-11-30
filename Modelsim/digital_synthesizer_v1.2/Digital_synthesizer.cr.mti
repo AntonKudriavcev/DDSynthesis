@@ -1,16 +1,16 @@
-D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/digital_synthesizer_v1.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/digital_synthesizer_v1.v
+D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/noise_sum.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/noise_sum.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module digital_synthesizer_v1
+-- Compiling module noise_sum
 
 Top level modules:
-	digital_synthesizer_v1
+	noise_sum
 
-} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/noise_generator.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/noise_generator.v
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/buffer.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/buffer.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module noise_generator
+-- Compiling module buffer
 
 Top level modules:
-	noise_generator
+	buffer
 
 } {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/src/LFM_phase_accum.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/src/LFM_phase_accum.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
@@ -19,19 +19,40 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 2
 Top level modules:
 	LFM_phase_accum
 
-} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_phase_accum.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/LFM_phase_accum.v
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/digital_synthesizer_v1.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/digital_synthesizer_v1.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module LFM_phase_accum
+-- Compiling module digital_synthesizer_v1
 
 Top level modules:
-	LFM_phase_accum
+	digital_synthesizer_v1
 
-} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/Test_002/ROM.v
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/PSK_phase_accum.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/PSK_phase_accum.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module ROM
+-- Compiling module PSK_phase_accum
 
 Top level modules:
-	ROM
+	PSK_phase_accum
+
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/ip_cores/fifo.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/ip_cores/fifo.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module fifo
+
+Top level modules:
+	fifo
+
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/ip_cores/div1.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/ip_cores/div1.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module div1
+
+Top level modules:
+	div1
+
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/ip_cores/div2.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/ip_cores/div2.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module div2
+
+Top level modules:
+	div2
 
 } {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/src/PSK_phase_accum.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/src/PSK_phase_accum.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
@@ -47,19 +68,26 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 2
 Top level modules:
 	output_reg
 
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/ip_cores/ROM.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/ip_cores/ROM.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module ROM
+
+Top level modules:
+	ROM
+
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/ip_cores/mul.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/ip_cores/mul.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module mul
+
+Top level modules:
+	mul
+
 } {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/src/signal_mux.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/src/signal_mux.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
 -- Compiling module signal_mux
 
 Top level modules:
 	signal_mux
-
-} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/output_reg.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/output_reg.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module output_reg
-
-Top level modules:
-	output_reg
 
 } {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/tb/digital_synthesizer_tb.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/tb/digital_synthesizer_tb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
@@ -68,19 +96,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 2
 Top level modules:
 	digital_synthesizer_tb
 
-} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/PSK_phase_accum.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/PSK_phase_accum.v
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/noise_generator.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/noise_generator.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module PSK_phase_accum
+-- Compiling module noise_generator
 
 Top level modules:
-	PSK_phase_accum
-
-} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/signal_mux.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/signal_mux.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module signal_mux
-
-Top level modules:
-	signal_mux
+	noise_generator
 
 } {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/tb/digital_synthesizer_tb.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/tb/digital_synthesizer_tb.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
@@ -89,13 +110,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 2
 Top level modules:
 	digital_synthesizer_tb
 
-} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div1.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div1.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module div1
-
-Top level modules:
-	div1
-
 } {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/src/buffer.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/src/buffer.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
 -- Compiling module buffer
@@ -103,12 +117,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 2
 Top level modules:
 	buffer
 
-} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div2.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/div2.v
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/output_reg.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/output_reg.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module div2
+-- Compiling module output_reg
 
 Top level modules:
-	div2
+	output_reg
 
 } {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/src/digital_synthesizer_v1.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/src/digital_synthesizer_v1.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
@@ -117,12 +131,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 2
 Top level modules:
 	digital_synthesizer_v1
 
-} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/buffer.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/src/buffer.v
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/signal_mux.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/signal_mux.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
--- Compiling module buffer
+-- Compiling module signal_mux
 
 Top level modules:
-	buffer
+	signal_mux
+
+} {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/LFM_phase_accum.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Quartus/digital_synthesizer_v1.2/src/LFM_phase_accum.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018
+-- Compiling module LFM_phase_accum
+
+Top level modules:
+	LFM_phase_accum
 
 } {} {}} D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/src/noise_generator.v {1 {vlog -work work -stats=none D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.0/src/noise_generator.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.6d Compiler 2018.02 Feb 24 2018

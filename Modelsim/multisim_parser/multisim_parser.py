@@ -10,8 +10,20 @@ import numpy as np
 f_sampling = 13e9  ## Hz  
 f_carrier  = 1.3e9 + 0 ## Hz
 t_impulse  = 10e-6  ## 
-t_period   = 25e-6  ## 
-num_of_imp = 1  ## 
+
+vobulation  = 0
+num_of_imp  = 1  ## 
+t_period_1  = 2e-6  ## 
+t_period_2  = 2e-6  ## 
+t_period_3  = 2e-6  ## 
+t_period_4  = 2e-6  ## 
+t_period_5  = 2e-6  ## 
+t_period_6  = 2e-6  ## 
+t_period_7  = 2e-6  ## 
+t_period_8  = 2e-6  ## 
+t_period_9  = 2e-6  ## 
+t_period_10 = 2e-6  ## 
+
 deviation  = 3e6
 
 mult_coef = 16384
@@ -31,8 +43,13 @@ print('Смоделировнная вых. частота =\t', f_out)
 delta = (f_sampling)/(mult_coef * 2**accum_bit_deph)
 print('Допустимое отклонение частоты от требуемой = %.3f\t' %delta)
 
-time_of_simulation = (num_of_imp - 1) * t_period + t_impulse
-num_of_samples     = (((num_of_imp - 1) * t_period) + t_impulse) * f_sampling
+if vobulation:
+    time_of_simulation = (t_impulse + t_period_1 + t_period_2 + t_period_3 + t_period_4 + t_period_5 + 
+                        t_period_6 + t_period_7 + t_period_8 + t_period_9 + t_period_10)
+else:
+    time_of_simulation = (num_of_imp - 1) * t_period_1 + t_impulse
+
+num_of_samples     = time_of_simulation * f_sampling
 
 print('Неокругленное количество отсчетов в сигнале\t=', num_of_samples)
 
@@ -42,7 +59,7 @@ print('Oкругленное количество отсчетов в сигна
 
 ##-----------------------------------------------------------------------------
 
-path = 'D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2/data/output_signal.txt'
+path = 'D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2.1/data/output_signal.txt'
 
 with open(path) as file:
     data = file.read().split()
@@ -90,12 +107,12 @@ plt.show()
 simulated_freq = np.argmax(spectrum) * f_sampling/(len(spectrum)-1)
 print('Частота смоделированного сигнала =\t', simulated_freq)
 
-# acf = abs(np.correlate(signal, signal, 'full'))
-# acf /= acf.max()
-# acf = 10 * np.log10(acf)
-# plt.plot(acf, linewidth = 0.5)
-# plt.grid()
-# plt.show()
+acf = abs(np.correlate(signal, signal, 'full'))
+acf /= acf.max()
+acf = 10 * np.log10(acf)
+plt.plot(acf, linewidth = 0.5)
+plt.grid()
+plt.show()
 
 
 # print(4096*3000000/(13000000000*10/2*13000))

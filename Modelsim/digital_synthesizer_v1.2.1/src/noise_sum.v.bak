@@ -1,0 +1,36 @@
+module noise_sum(
+
+    input wire CLK,
+    input wire RESET,
+
+    input wire [15:0] RND1,
+    input wire [15:0] RND2,
+    input wire [15:0] RND3,
+    input wire [15:0] RND4,
+    input wire [15:0] RND5,
+    input wire [15:0] RND6,
+    input wire [15:0] RND7,
+    input wire [15:0] RND8,
+    input wire [15:0] RND9,
+    input wire [15:0] RND10,
+    input wire [15:0] RND11,
+    input wire [15:0] RND12,
+
+    output reg [11:0] NOISE_OUT);
+
+//--user parameters------------------------------------------------------------
+
+    always @(posedge CLK or posedge RESET) begin
+        if (RESET) begin
+            // reset
+            
+        end else begin
+            NOISE_OUT = RND1 + RND2 + RND3 + RND4 + RND5 + RND6 + RND7 + RND8 + RND9 + RND10 + RND11 + RND11 + RND12;
+        end
+    end
+
+
+
+
+
+endmodule

@@ -120,9 +120,9 @@ DAC_bit_resolution = 12
 
 ##-user param-------------
 f_deviation  = 3e6*1 # Hz
-t_impulse    = 10e-6 # sec
-t_repetition = 1000e-6
-num_of_impulse = 1
+t_impulse    = 1e-6 # sec
+t_repetition = 2e-6
+num_of_impulse = 2
 
 
 
@@ -204,5 +204,12 @@ plt.show()
 
 simulated_freq = np.argmax(spectrum) * f_sampling/(len(spectrum)-1)
 print('Частота смоделированного сигнала =\t', simulated_freq)
+
+acf = abs(np.correlate(output_signal, output_signal, 'full'))
+acf /= acf.max()
+# acf = 10 * np.log10(acf)
+plt.plot(acf, linewidth = 0.5)
+plt.grid()
+plt.show()
 
 

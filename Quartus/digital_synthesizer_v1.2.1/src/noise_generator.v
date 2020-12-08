@@ -67,8 +67,8 @@ module noise_generator(
                                     // is ready for work (LFM_phase_accum starts 
                                     // calculate phase of signal from ROM)
 
-    reg [31:0] num_of_samples  = 0; // from 0 to 2627950000 - 1
-    reg [31:0] samples_counter = 0; // from 0 to 2627950000 - 1
+    reg [31:0] num_of_samples  = 0; // from 0 to 274877906943
+    reg [31:0] samples_counter = 0; // from 0 to 274877906943
 
     reg [35:0] z1              = 0; // random value of a congruent generator
     reg [35:0] z2              = 0; // random value of a congruent generator

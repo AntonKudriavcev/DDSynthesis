@@ -9,13 +9,14 @@ import numpy as np
 
 f_sampling = 13e9  ## Hz  
 f_carrier  = 1.3e9 + 0 ## Hz
-t_impulse  = 10e-6  ## 
+t_impulse  = 1e-6  ## 
 
-vobulation  = 0
-num_of_imp  = 1  ## 
+vobulation  = 1
+num_of_imp  = 3  ## 
+
 t_period_1  = 2e-6  ## 
-t_period_2  = 2e-6  ## 
-t_period_3  = 2e-6  ## 
+t_period_2  = 3e-6  ## 
+t_period_3  = 4e-6  ## 
 t_period_4  = 2e-6  ## 
 t_period_5  = 2e-6  ## 
 t_period_6  = 2e-6  ## 
@@ -23,6 +24,29 @@ t_period_7  = 2e-6  ##
 t_period_8  = 2e-6  ## 
 t_period_9  = 2e-6  ## 
 t_period_10 = 2e-6  ## 
+t_period_11 = 2e-6  ## 
+t_period_12 = 2e-6  ## 
+t_period_13 = 2e-6  ## 
+t_period_14 = 2e-6  ## 
+t_period_15 = 2e-6  ## 
+t_period_16 = 2e-6  ## 
+t_period_17 = 2e-6  ## 
+t_period_18 = 2e-6  ## 
+t_period_19 = 2e-6  ## 
+t_period_20 = 2e-6  ## 
+t_period_21 = 2e-6  ## 
+t_period_22 = 2e-6  ## 
+t_period_23 = 2e-6  ## 
+t_period_24 = 2e-6  ## 
+t_period_25 = 2e-6  ## 
+t_period_26 = 2e-6  ## 
+t_period_27 = 2e-6  ## 
+t_period_28 = 2e-6  ## 
+t_period_29 = 2e-6  ## 
+t_period_30 = 2e-6  ## 
+t_period_31 = 2e-6  ## 
+t_period_32 = 2e-6  ## 
+
 
 deviation  = 3e6
 
@@ -44,8 +68,39 @@ delta = (f_sampling)/(mult_coef * 2**accum_bit_deph)
 print('Допустимое отклонение частоты от требуемой = %.3f\t' %delta)
 
 if vobulation:
-    time_of_simulation = (t_impulse + t_period_1 + t_period_2 + t_period_3 + t_period_4 + t_period_5 + 
-                        t_period_6 + t_period_7 + t_period_8 + t_period_9 + t_period_10)
+    time_of_simulation = (t_impulse + 
+                         (t_period_1  * (num_of_imp > 1))  +
+                         (t_period_2  * (num_of_imp > 2))  +
+                         (t_period_3  * (num_of_imp > 3))  + 
+                         (t_period_4  * (num_of_imp > 4))  + 
+                         (t_period_5  * (num_of_imp > 5))  + 
+                         (t_period_6  * (num_of_imp > 6))  + 
+                         (t_period_7  * (num_of_imp > 7))  + 
+                         (t_period_8  * (num_of_imp > 8))  + 
+                         (t_period_9  * (num_of_imp > 9))  + 
+                         (t_period_10 * (num_of_imp > 10)) +
+                         (t_period_11 * (num_of_imp > 11)) +
+                         (t_period_12 * (num_of_imp > 12)) +
+                         (t_period_13 * (num_of_imp > 13)) + 
+                         (t_period_14 * (num_of_imp > 14)) + 
+                         (t_period_15 * (num_of_imp > 15)) + 
+                         (t_period_16 * (num_of_imp > 16)) + 
+                         (t_period_17 * (num_of_imp > 17)) + 
+                         (t_period_18 * (num_of_imp > 18)) + 
+                         (t_period_19 * (num_of_imp > 19)) + 
+                         (t_period_20 * (num_of_imp > 20)) +
+                         (t_period_21 * (num_of_imp > 21)) +
+                         (t_period_22 * (num_of_imp > 22)) +
+                         (t_period_23 * (num_of_imp > 23)) + 
+                         (t_period_24 * (num_of_imp > 24)) + 
+                         (t_period_25 * (num_of_imp > 25)) + 
+                         (t_period_26 * (num_of_imp > 26)) + 
+                         (t_period_27 * (num_of_imp > 27)) + 
+                         (t_period_28 * (num_of_imp > 28)) + 
+                         (t_period_29 * (num_of_imp > 29)) + 
+                         (t_period_30 * (num_of_imp > 30)) +
+                         (t_period_31 * (num_of_imp > 31)) +
+                         (t_period_32 * (num_of_imp > 32)))
 else:
     time_of_simulation = (num_of_imp - 1) * t_period_1 + t_impulse
 
@@ -81,11 +136,11 @@ signal = np.array(signal[0:num_of_samples])
 m_tr     = int(2**DAC_bit_resolution/2 - 1) ## требуемое значение матожидания выходного процесса
 sigma_tr = int(m_tr/3) ## требуемое значение СКО выходного процесса
 
-x = np.linspace(0, 4095, 4096)
-w = 1/(np.sqrt(2*np.pi) * sigma_tr) * np.exp(-(x - m_tr)**2/(2*sigma_tr**2))
-plt.hist(signal, bins = 100, density = True)
-plt.plot(x, w)
-plt.show()
+# x = np.linspace(0, 4095, 4096)
+# w = 1/(np.sqrt(2*np.pi) * sigma_tr) * np.exp(-(x - m_tr)**2/(2*sigma_tr**2))
+# plt.hist(signal, bins = 100, density = True)
+# plt.plot(x, w)
+# plt.show()
 
 fig, (ax1, ax2) = plt.subplots(nrows = 2, ncols = 1)
 
@@ -109,7 +164,7 @@ print('Частота смоделированного сигнала =\t', simu
 
 acf = abs(np.correlate(signal, signal, 'full'))
 acf /= acf.max()
-acf = 10 * np.log10(acf)
+# acf = 10 * np.log10(acf)
 plt.plot(acf, linewidth = 0.5)
 plt.grid()
 plt.show()

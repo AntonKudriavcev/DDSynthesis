@@ -1,0 +1,73 @@
+
+module LFM_phase_accum(
+
+    input wire        CLK,
+    input wire        RESET,
+
+    output reg [ 1:0] SIGNAL_TYPE,
+    output reg [31:0] F_CARRIER,
+    output reg [ 9:0] T_IMPULSE,
+
+    output reg [ 5:0] NUM_OF_IMP, // from 0 to 63
+    output reg        VOBULATION,
+
+    output reg [12:0] T_PERIOD_1,
+    output reg [12:0] T_PERIOD_2,
+    output reg [12:0] T_PERIOD_3,
+    output reg [12:0] T_PERIOD_4,
+    output reg [12:0] T_PERIOD_5,
+    output reg [12:0] T_PERIOD_6,
+    output reg [12:0] T_PERIOD_7,
+    output reg [12:0] T_PERIOD_8,
+    output reg [12:0] T_PERIOD_9,
+    output reg [12:0] T_PERIOD_10,
+    output reg [12:0] T_PERIOD_11,
+    output reg [12:0] T_PERIOD_12,
+    output reg [12:0] T_PERIOD_13,
+    output reg [12:0] T_PERIOD_14,
+    output reg [12:0] T_PERIOD_15,
+    output reg [12:0] T_PERIOD_16,
+    output reg [12:0] T_PERIOD_17,
+    output reg [12:0] T_PERIOD_18,
+    output reg [12:0] T_PERIOD_19,
+    output reg [12:0] T_PERIOD_20,
+    output reg [12:0] T_PERIOD_21,
+    output reg [12:0] T_PERIOD_22,
+    output reg [12:0] T_PERIOD_23,
+    output reg [12:0] T_PERIOD_24,
+    output reg [12:0] T_PERIOD_25,
+    output reg [12:0] T_PERIOD_26,
+    output reg [12:0] T_PERIOD_27,
+    output reg [12:0] T_PERIOD_28,
+    output reg [12:0] T_PERIOD_29,
+    output reg [12:0] T_PERIOD_30,
+    output reg [12:0] T_PERIOD_31,
+    output reg [12:0] T_PERIOD_32,
+
+    output reg [21:0] DEVIATION,
+    output reg        SIGN_START_GEN,
+    output reg        OUT_REG_READY,
+
+    output reg [39:0] QUONTIENT_STEP_MAX,
+    output reg [24:0] REMAIN_STEP_MAX,
+    output reg [22:0] QUONTIENT_DLT_STEP,
+    output reg [47:0] REMAIN_DLT_STEP); // inform output reg which calculation of phase stopped
+
+//--user parameters------------------------------------------------------------
+
+//--user variables-------------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+
+    always @(posedge CLK) begin
+
+        if (RESET) begin
+            
+        end else begin
+            
+        end
+    end
+
+endmodule

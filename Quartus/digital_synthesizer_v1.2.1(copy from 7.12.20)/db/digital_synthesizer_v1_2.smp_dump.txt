@@ -1,0 +1,7 @@
+
+State Machine - |digital_synthesizer_v1|output_reg:output_reg|signal_type
+Name signal_type._NOISE_SIGNAL_TYPE signal_type._PSK_SIGNAL_TYPE signal_type._LFM_SIGNAL_TYPE signal_type.00 
+signal_type.00 0 0 0 0 
+signal_type._LFM_SIGNAL_TYPE 0 0 1 1 
+signal_type._PSK_SIGNAL_TYPE 0 1 0 1 
+signal_type._NOISE_SIGNAL_TYPE 1 0 0 1 

@@ -25,7 +25,30 @@ module digital_synthesizer_tb;
     reg    [12:0] t_period_8;  // from 360 to 6500us(8191us)
     reg    [12:0] t_period_9;  // from 360 to 6500us(8191us)
     reg    [12:0] t_period_10; // from 360 to 6500us(8191us)
-    reg    [ 4:0] num_of_imp;  // from 0 to 31
+    reg    [12:0] t_period_11;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_12;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_13;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_14;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_15;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_16;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_17;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_18;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_19;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_20; // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_21;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_22;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_23;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_24;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_25;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_26;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_27;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_28;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_29;  // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_30; // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_31; // from 360 to 6500us(8191us)
+    reg    [12:0] t_period_32; // from 360 to 6500us(8191us)
+
+    reg    [ 5:0] num_of_imp;  // from 0 to 63
     reg    [21:0] deviation;   // from 2 to 4MHz    (4.19MHz)
     
     wire   [11:0] syn_out;
@@ -46,8 +69,10 @@ module digital_synthesizer_tb;
                                                   .SIGNAL_TYPE       (signal_type),
                                                   .F_CARRIER         (f_carrier),
                                                   .T_IMPULSE         (t_impulse),
-                                                  // .T_PERIOD          (t_period),
+
+                                                  .NUM_OF_IMP        (num_of_imp),
                                                   .VOBULATION        (vobulation),
+
                                                   .T_PERIOD_1        (t_period_1),
                                                   .T_PERIOD_2        (t_period_2),
                                                   .T_PERIOD_3        (t_period_3),
@@ -58,7 +83,29 @@ module digital_synthesizer_tb;
                                                   .T_PERIOD_8        (t_period_8),
                                                   .T_PERIOD_9        (t_period_9),
                                                   .T_PERIOD_10       (t_period_10),
-                                                  .NUM_OF_IMP        (num_of_imp),
+                                                  .T_PERIOD_11       (t_period_11),
+                                                  .T_PERIOD_12       (t_period_12),
+                                                  .T_PERIOD_13       (t_period_13),
+                                                  .T_PERIOD_14       (t_period_14),
+                                                  .T_PERIOD_15       (t_period_15),
+                                                  .T_PERIOD_16       (t_period_16),
+                                                  .T_PERIOD_17       (t_period_17),
+                                                  .T_PERIOD_18       (t_period_18),
+                                                  .T_PERIOD_19       (t_period_19),
+                                                  .T_PERIOD_20       (t_period_20),
+                                                  .T_PERIOD_21       (t_period_21),
+                                                  .T_PERIOD_22       (t_period_22),
+                                                  .T_PERIOD_23       (t_period_23),
+                                                  .T_PERIOD_24       (t_period_24),
+                                                  .T_PERIOD_25       (t_period_25),
+                                                  .T_PERIOD_26       (t_period_26),
+                                                  .T_PERIOD_27       (t_period_27),
+                                                  .T_PERIOD_28       (t_period_28),
+                                                  .T_PERIOD_29       (t_period_29),
+                                                  .T_PERIOD_30       (t_period_30),
+                                                  .T_PERIOD_31       (t_period_31),
+                                                  .T_PERIOD_32       (t_period_32),
+
                                                   .DEVIATION         (deviation),
 
                                                   .OUTPUT            (syn_out));
@@ -70,13 +117,14 @@ module digital_synthesizer_tb;
         reset   = 0;
 
         f_carrier   = (13_00000000 + 0); // Hz
-        t_impulse   = 10; // us
+        t_impulse   = 1; // us
         // t_period  = 15;  // us 
-        num_of_imp  = 1;  // 
-        vobulation  = 0;
+        num_of_imp  = 3;  // 
+        vobulation  = 1;
+
         t_period_1  = 2;  // us 
-        t_period_2  = 2;  // us 
-        t_period_3  = 2;  // us 
+        t_period_2  = 3;  // us 
+        t_period_3  = 4;  // us 
         t_period_4  = 2;  // us 
         t_period_5  = 2;  // us 
         t_period_6  = 2;  // us 
@@ -84,11 +132,33 @@ module digital_synthesizer_tb;
         t_period_8  = 2;  // us 
         t_period_9  = 2;  // us 
         t_period_10 = 2;  // us 
-        
+        t_period_11 = 2;  // us 
+        t_period_12 = 2;  // us 
+        t_period_13 = 2;  // us 
+        t_period_14 = 2;  // us 
+        t_period_15 = 2;  // us 
+        t_period_16 = 2;  // us 
+        t_period_17 = 2;  // us 
+        t_period_18 = 2;  // us 
+        t_period_19 = 2;  // us 
+        t_period_20 = 2;  // us
+        t_period_21 = 2;  // us 
+        t_period_22 = 2;  // us 
+        t_period_23 = 2;  // us 
+        t_period_24 = 2;  // us 
+        t_period_25 = 2;  // us 
+        t_period_26 = 2;  // us 
+        t_period_27 = 2;  // us 
+        t_period_28 = 2;  // us 
+        t_period_29 = 2;  // us 
+        t_period_30 = 2;  // us
+        t_period_31 = 2;  // us
+        t_period_32 = 2;  // us
+
         deviation   = 3e6; // Hz
 
         sign_start_gen = 1;
-        signal_type    = _NOISE_SIGNAL_TYPE; // 
+        signal_type    = _PSK_SIGNAL_TYPE; // 
 
         file_data = $fopen("D:/study/6_year/diploma/Diploma/code/DDSynthesis/Modelsim/digital_synthesizer_v1.2.1/data/output_signal.txt", "w");
         $fclose(file_data) ;

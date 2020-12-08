@@ -1,17 +1,17 @@
-Fitter Status : Successful - Thu Dec 03 12:00:20 2020
+Fitter Status : Successful - Mon Dec 07 16:23:14 2020
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : digital_synthesizer_v1_2_1
 Top-level Entity Name : digital_synthesizer_v1
 Family : Arria V
 Device : 5AGXFB5K4F40I3
 Timing Models : Final
-Logic utilization (in ALMs) : 5,610 / 158,500 ( 4 % )
-Total registers : 4840
-Total pins : 217 / 872 ( 25 % )
+Logic utilization (in ALMs) : 8,400 / 158,500 ( 5 % )
+Total registers : 5898
+Total pins : 504 / 872 ( 58 % )
 Total virtual pins : 0
 Total block memory bits : 50,738 / 21,032,960 ( < 1 % )
 Total RAM Blocks : 20 / 2,054 ( < 1 % )
-Total DSP Blocks : 36 / 1,092 ( 3 % )
+Total DSP Blocks : 145 / 1,092 ( 13 % )
 Total HSSI RX PCSs : 0 / 36 ( 0 % )
 Total HSSI PMA RX Deserializers : 0 / 36 ( 0 % )
 Total HSSI TX PCSs : 0 / 36 ( 0 % )

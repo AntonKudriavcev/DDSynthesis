@@ -8,6 +8,7 @@ module LFM_phase_accum(
     input wire [31:0] F_CARRIER,
     input wire [ 9:0] T_IMPULSE,
 
+    input wire [ 5:0] NUM_OF_IMP, // from 0 to 63
     input wire        VOBULATION,
 
     input wire [12:0] T_PERIOD_1,
@@ -20,9 +21,31 @@ module LFM_phase_accum(
     input wire [12:0] T_PERIOD_8,
     input wire [12:0] T_PERIOD_9,
     input wire [12:0] T_PERIOD_10,
+    input wire [12:0] T_PERIOD_11,
+    input wire [12:0] T_PERIOD_12,
+    input wire [12:0] T_PERIOD_13,
+    input wire [12:0] T_PERIOD_14,
+    input wire [12:0] T_PERIOD_15,
+    input wire [12:0] T_PERIOD_16,
+    input wire [12:0] T_PERIOD_17,
+    input wire [12:0] T_PERIOD_18,
+    input wire [12:0] T_PERIOD_19,
+    input wire [12:0] T_PERIOD_20,
+    input wire [12:0] T_PERIOD_21,
+    input wire [12:0] T_PERIOD_22,
+    input wire [12:0] T_PERIOD_23,
+    input wire [12:0] T_PERIOD_24,
+    input wire [12:0] T_PERIOD_25,
+    input wire [12:0] T_PERIOD_26,
+    input wire [12:0] T_PERIOD_27,
+    input wire [12:0] T_PERIOD_28,
+    input wire [12:0] T_PERIOD_29,
+    input wire [12:0] T_PERIOD_30,
+    input wire [12:0] T_PERIOD_31,
+    input wire [12:0] T_PERIOD_32,
+
     // input wire [12:0] T_PERIOD,
 
-    input wire [ 4:0] NUM_OF_IMP,
     input wire [21:0] DEVIATION,
     input wire        SIGN_START_GEN,
     input wire        OUT_REG_READY,
@@ -56,6 +79,9 @@ module LFM_phase_accum(
     parameter _LFM_SIGNAL_TYPE =  2'd 1;
     parameter _DIV_DELAY       =  5'd 23; 
 
+    parameter _VOB_TRUE        = 1'b 1;
+    parameter _VOB_FALSE       = 1'b 0;
+
 //--user variables-------------------------------------------------------------
 
     reg [11:0] address        = 0;
@@ -64,13 +90,13 @@ module LFM_phase_accum(
                                    // is ready for work (LFM_phase_accum starts 
                                    // calculate phase of signal from ROM)
 
-    reg [31:0] num_of_samples  = 0; // from 0 to 2627950000 - 1
+    reg [31:0] num_of_samples  = 0; // from 0 to 4294967295 - 1
     reg [ 5:0] imp_counter     = 0;
-    reg [31:0] samples_counter = 0; // from 0 to 2627950000 - 1
+    reg [31:0] samples_counter = 0; // from 0 to 4294967295 - 1
     reg [31:0] imp_border_cnt  = 0; // counter which contains border of current impulse
     reg [31:0] per_border_cnt  = 0; // counter which contains border of current period
 
-    reg [21:0] half_imp_border_cnt = 0; // counter for monitoring borders half of impulse (for bidirectional LFM)
+    reg [31:0] half_imp_border_cnt = 0; // counter for monitoring borders half of impulse (for bidirectional LFM)
 
     reg [23:0] imp_samples       = 0; // from 0 to 16777215
 
@@ -85,6 +111,28 @@ module LFM_phase_accum(
     reg [26:0] period_samples_8  = 0; // from 0 to 134217727
     reg [26:0] period_samples_9  = 0; // from 0 to 134217727
     reg [26:0] period_samples_10 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_11 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_12 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_13 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_14 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_15 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_16 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_17 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_18 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_19 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_20 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_21 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_22 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_23 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_24 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_25 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_26 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_27 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_28 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_29 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_30 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_31 = 0; // from 0 to 134217727
+    reg [26:0] period_samples_32 = 0; // from 0 to 134217727
 
     reg [39:0] step_max_div    = 0; // integer part of the division for max step value
     reg [24:0] step_max_mod    = 0; // the fractional part of the division for max step value
@@ -129,6 +177,28 @@ module LFM_phase_accum(
             period_samples_8  <= 0;
             period_samples_9  <= 0;
             period_samples_10 <= 0;
+            period_samples_11 <= 0;
+            period_samples_12 <= 0;
+            period_samples_13 <= 0;
+            period_samples_14 <= 0;
+            period_samples_15 <= 0;
+            period_samples_16 <= 0;
+            period_samples_17 <= 0;
+            period_samples_18 <= 0;
+            period_samples_19 <= 0;
+            period_samples_20 <= 0;
+            period_samples_21 <= 0;
+            period_samples_22 <= 0;
+            period_samples_23 <= 0;
+            period_samples_24 <= 0;
+            period_samples_25 <= 0;
+            period_samples_26 <= 0;
+            period_samples_27 <= 0;
+            period_samples_28 <= 0;
+            period_samples_29 <= 0;
+            period_samples_30 <= 0;
+            period_samples_31 <= 0;
+            period_samples_32 <= 0;
 
             busy            <= 0; // clear flag busy of phase accum 
             address         <= 0;
@@ -151,7 +221,7 @@ module LFM_phase_accum(
 
             case(VOBULATION)
 
-                0: begin
+                _VOB_FALSE: begin
                     // calculate num of samples per period
                     period_samples_1    = (T_PERIOD_1  * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; 
                     // calculate num of samples for all packet
@@ -159,7 +229,7 @@ module LFM_phase_accum(
                     imp_counter        <= 0; 
                 end
 
-                1: begin
+                _VOB_TRUE: begin
                     period_samples_1   = (T_PERIOD_1  * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 1
                     period_samples_2  <= (T_PERIOD_2  * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 2 
                     period_samples_3  <= (T_PERIOD_3  * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 3
@@ -170,9 +240,62 @@ module LFM_phase_accum(
                     period_samples_8  <= (T_PERIOD_8  * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 8
                     period_samples_9  <= (T_PERIOD_9  * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 9
                     period_samples_10 <= (T_PERIOD_10 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 10
+                    period_samples_11 <= (T_PERIOD_11 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 11
+                    period_samples_12 <= (T_PERIOD_12 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 12 
+                    period_samples_13 <= (T_PERIOD_13 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 13
+                    period_samples_14 <= (T_PERIOD_14 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 14
+                    period_samples_15 <= (T_PERIOD_15 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 15
+                    period_samples_16 <= (T_PERIOD_16 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 16
+                    period_samples_17 <= (T_PERIOD_17 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 17
+                    period_samples_18 <= (T_PERIOD_18 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 18
+                    period_samples_19 <= (T_PERIOD_19 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 19
+                    period_samples_20 <= (T_PERIOD_20 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 20
+                    period_samples_21 <= (T_PERIOD_21 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 21
+                    period_samples_22 <= (T_PERIOD_22 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 22 
+                    period_samples_23 <= (T_PERIOD_23 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 23
+                    period_samples_24 <= (T_PERIOD_24 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 24
+                    period_samples_25 <= (T_PERIOD_25 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 25
+                    period_samples_26 <= (T_PERIOD_26 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 26
+                    period_samples_27 <= (T_PERIOD_27 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 27
+                    period_samples_28 <= (T_PERIOD_28 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 28
+                    period_samples_29 <= (T_PERIOD_29 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 29
+                    period_samples_30 <= (T_PERIOD_30 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 30
+                    period_samples_31 <= (T_PERIOD_31 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 31
+                    period_samples_32 <= (T_PERIOD_32 * _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2; // calculate num of samples per period 32
 
-                    num_of_samples <= (((T_PERIOD_1 + T_PERIOD_2 + T_PERIOD_3 + T_PERIOD_4 + T_PERIOD_5  + 
-                                         T_PERIOD_6 + T_PERIOD_7 + T_PERIOD_8 + T_PERIOD_9 + T_PERIOD_10 + T_IMPULSE) *
+                    num_of_samples <= ((((T_IMPULSE)                       +
+                                         (T_PERIOD_1  * (NUM_OF_IMP > 1))  + 
+                                         (T_PERIOD_2  * (NUM_OF_IMP > 2))  +
+                                         (T_PERIOD_3  * (NUM_OF_IMP > 3))  + 
+                                         (T_PERIOD_4  * (NUM_OF_IMP > 4))  + 
+                                         (T_PERIOD_5  * (NUM_OF_IMP > 5))  +
+                                         (T_PERIOD_6  * (NUM_OF_IMP > 6))  + 
+                                         (T_PERIOD_7  * (NUM_OF_IMP > 7))  + 
+                                         (T_PERIOD_8  * (NUM_OF_IMP > 8))  + 
+                                         (T_PERIOD_9  * (NUM_OF_IMP > 9))  + 
+                                         (T_PERIOD_10 * (NUM_OF_IMP > 10)) +
+                                         (T_PERIOD_11 * (NUM_OF_IMP > 11)) + 
+                                         (T_PERIOD_12 * (NUM_OF_IMP > 12)) +
+                                         (T_PERIOD_13 * (NUM_OF_IMP > 13)) + 
+                                         (T_PERIOD_14 * (NUM_OF_IMP > 14)) + 
+                                         (T_PERIOD_15 * (NUM_OF_IMP > 15)) +
+                                         (T_PERIOD_16 * (NUM_OF_IMP > 16)) + 
+                                         (T_PERIOD_17 * (NUM_OF_IMP > 17)) + 
+                                         (T_PERIOD_18 * (NUM_OF_IMP > 18)) + 
+                                         (T_PERIOD_19 * (NUM_OF_IMP > 19)) + 
+                                         (T_PERIOD_20 * (NUM_OF_IMP > 20)) +
+                                         (T_PERIOD_21 * (NUM_OF_IMP > 21)) +
+                                         (T_PERIOD_22 * (NUM_OF_IMP > 22)) +
+                                         (T_PERIOD_23 * (NUM_OF_IMP > 23)) + 
+                                         (T_PERIOD_24 * (NUM_OF_IMP > 24)) + 
+                                         (T_PERIOD_25 * (NUM_OF_IMP > 25)) +
+                                         (T_PERIOD_26 * (NUM_OF_IMP > 26)) + 
+                                         (T_PERIOD_27 * (NUM_OF_IMP > 27)) + 
+                                         (T_PERIOD_28 * (NUM_OF_IMP > 28)) + 
+                                         (T_PERIOD_29 * (NUM_OF_IMP > 29)) + 
+                                         (T_PERIOD_30 * (NUM_OF_IMP > 30)) + 
+                                         (T_PERIOD_31 * (NUM_OF_IMP > 31)) + 
+                                         (T_PERIOD_32 * (NUM_OF_IMP > 32))) *
                                          _SAMP_FREQ_VALUE2) << _SAMP_FREQ_SHIFT2); // calculate num of samples for all packet
                     imp_counter    <= 1;                                            
                 end
@@ -294,73 +417,195 @@ module LFM_phase_accum(
                                         per_border_cnt      <= per_border_cnt + period_samples_1;
                                         half_imp_border_cnt <= half_imp_border_cnt + period_samples_1;
                                     end
-
                                     1: begin 
                                         imp_border_cnt      <= imp_border_cnt + period_samples_1;
                                         per_border_cnt      <= per_border_cnt + period_samples_2;
                                         half_imp_border_cnt <= half_imp_border_cnt + period_samples_1;
                                         imp_counter         <= imp_counter + 1;
                                     end
-
                                     2: begin 
                                         imp_border_cnt      <= imp_border_cnt + period_samples_2;
                                         per_border_cnt      <= per_border_cnt + period_samples_3;
                                         half_imp_border_cnt <= half_imp_border_cnt + period_samples_2;
                                         imp_counter         <= imp_counter + 1;
                                     end
-
                                     3: begin 
                                         imp_border_cnt      <= imp_border_cnt + period_samples_3;
                                         per_border_cnt      <= per_border_cnt + period_samples_4;
                                         half_imp_border_cnt <= half_imp_border_cnt + period_samples_3;
                                         imp_counter         <= imp_counter + 1;
                                     end
-
                                     4: begin 
                                         imp_border_cnt      <= imp_border_cnt + period_samples_4;
                                         per_border_cnt      <= per_border_cnt + period_samples_5;
                                         half_imp_border_cnt <= half_imp_border_cnt + period_samples_4;
                                         imp_counter         <= imp_counter + 1;
                                     end
-
                                     5: begin 
                                         imp_border_cnt      <= imp_border_cnt + period_samples_5;
                                         per_border_cnt      <= per_border_cnt + period_samples_6;
                                         half_imp_border_cnt <= half_imp_border_cnt + period_samples_5;
                                         imp_counter         <= imp_counter + 1;
                                     end
-
                                     6: begin 
                                         imp_border_cnt      <= imp_border_cnt + period_samples_6;
                                         per_border_cnt      <= per_border_cnt + period_samples_7;
                                         half_imp_border_cnt <= half_imp_border_cnt + period_samples_6;
                                         imp_counter         <= imp_counter + 1;
                                     end
-
                                     7: begin 
                                         imp_border_cnt      <= imp_border_cnt + period_samples_7;
                                         per_border_cnt      <= per_border_cnt + period_samples_8;
                                         half_imp_border_cnt <= half_imp_border_cnt + period_samples_7;
                                         imp_counter         <= imp_counter + 1;
                                     end
-
                                     8: begin 
                                         imp_border_cnt      <= imp_border_cnt + period_samples_8;
                                         per_border_cnt      <= per_border_cnt + period_samples_9;
                                         half_imp_border_cnt <= half_imp_border_cnt + period_samples_8;
                                         imp_counter         <= imp_counter + 1;
                                     end
-
                                     9: begin 
                                         imp_border_cnt      <= imp_border_cnt + period_samples_9;
                                         per_border_cnt      <= per_border_cnt + period_samples_10;
                                         half_imp_border_cnt <= half_imp_border_cnt + period_samples_9;
                                         imp_counter         <= imp_counter + 1;
                                     end
-
                                     10: begin 
                                         imp_border_cnt      <= imp_border_cnt + period_samples_10;
+                                        per_border_cnt      <= per_border_cnt + period_samples_11;
                                         half_imp_border_cnt <= half_imp_border_cnt + period_samples_10;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    11: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_11;
+                                        per_border_cnt      <= per_border_cnt + period_samples_12;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_11;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    12: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_12;
+                                        per_border_cnt      <= per_border_cnt + period_samples_13;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_12;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    13: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_13;
+                                        per_border_cnt      <= per_border_cnt + period_samples_14;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_13;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    14: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_14;
+                                        per_border_cnt      <= per_border_cnt + period_samples_15;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_14;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    15: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_15;
+                                        per_border_cnt      <= per_border_cnt + period_samples_16;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_15;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    16: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_16;
+                                        per_border_cnt      <= per_border_cnt + period_samples_17;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_16;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    17: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_17;
+                                        per_border_cnt      <= per_border_cnt + period_samples_18;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_17;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    18: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_18;
+                                        per_border_cnt      <= per_border_cnt + period_samples_19;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_18;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    19: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_19;
+                                        per_border_cnt      <= per_border_cnt + period_samples_20;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_19;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    20: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_20;
+                                        per_border_cnt      <= per_border_cnt + period_samples_21;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_20;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    21: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_21;
+                                        per_border_cnt      <= per_border_cnt + period_samples_22;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_21;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    22: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_22;
+                                        per_border_cnt      <= per_border_cnt + period_samples_23;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_22;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    23: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_23;
+                                        per_border_cnt      <= per_border_cnt + period_samples_24;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_23;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    24: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_24;
+                                        per_border_cnt      <= per_border_cnt + period_samples_25;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_24;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    25: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_25;
+                                        per_border_cnt      <= per_border_cnt + period_samples_26;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_25;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    26: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_26;
+                                        per_border_cnt      <= per_border_cnt + period_samples_27;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_26;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    27: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_27;
+                                        per_border_cnt      <= per_border_cnt + period_samples_28;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_27;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    28: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_28;
+                                        per_border_cnt      <= per_border_cnt + period_samples_29;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_28;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    29: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_29;
+                                        per_border_cnt      <= per_border_cnt + period_samples_30;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_29;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    30: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_30;
+                                        per_border_cnt      <= per_border_cnt + period_samples_31;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_30;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    31: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_31;
+                                        per_border_cnt      <= per_border_cnt + period_samples_32;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_31;
+                                        imp_counter         <= imp_counter + 1;
+                                    end
+                                    32: begin 
+                                        imp_border_cnt      <= imp_border_cnt + period_samples_32;
+                                        half_imp_border_cnt <= half_imp_border_cnt + period_samples_32;
                                     end
 
                                     default: // if vobulation is false
@@ -392,6 +637,28 @@ module LFM_phase_accum(
                     period_samples_8  <= 0;
                     period_samples_9  <= 0;
                     period_samples_10 <= 0;
+                    period_samples_11 <= 0;
+                    period_samples_12 <= 0;
+                    period_samples_13 <= 0;
+                    period_samples_14 <= 0;
+                    period_samples_15 <= 0;
+                    period_samples_16 <= 0;
+                    period_samples_17 <= 0;
+                    period_samples_18 <= 0;
+                    period_samples_19 <= 0;
+                    period_samples_20 <= 0;
+                    period_samples_21 <= 0;
+                    period_samples_22 <= 0;
+                    period_samples_23 <= 0;
+                    period_samples_24 <= 0;
+                    period_samples_25 <= 0;
+                    period_samples_26 <= 0;
+                    period_samples_27 <= 0;
+                    period_samples_28 <= 0;
+                    period_samples_29 <= 0;
+                    period_samples_30 <= 0;
+                    period_samples_31 <= 0;
+                    period_samples_32 <= 0;
 
                     busy            <= 0; // clear flag busy of phase accum 
                     address         <= 0;
